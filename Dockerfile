@@ -5,6 +5,7 @@ RUN npm ci
 
 FROM deps AS build
 COPY . .
+RUN mkdir -p public
 ARG NEXT_PUBLIC_SUPABASE_URL=https://placeholder.supabase.co
 ARG NEXT_PUBLIC_SUPABASE_ANON_KEY=placeholder
 ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL \
