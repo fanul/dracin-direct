@@ -41,8 +41,21 @@ function mapEpisodes(items: Episode[]): EpisodeItem[] {
 }
 
 async function playback(provider: DirectProvider, slug: string, token: string): Promise<PlaybackResponse> {
-  const items = await rawEpisodes(provider, slug);
   const episodeNo = Number.parseInt(token, 10);
+  if (provider === 'shortmax') {
+    const legacyId = slug.match(/-(\d+)$/)?.[1];
+    const shortPlayId = slug === 'kembalinya-pengantin-yang-ditolak-7906' ? '8714' : legacyId;
+    if (!shortPlayId || !Number.isFinite(episodeNo)) throw new Error('PLAYBACK_ENDPOINT_NOT_FOUND');
+    const response = await fetch(`https://api.sansekai.my.id/api/shortmax/get-episode?shortPlayId=${encodeURIComponent(shortPlayId)}&episodeNumber=${episodeNo}&lang=id`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`SHORTMAX_PLAYBACK_UPSTREAM_${response.status}`);
+    const payload = await response.json() as { episode?: { duration?: number; videoUrl?: Record<string, string> } };
+    const streams = Object.entries(payload.episode?.videoUrl || {}).filter((entry): entry is [string, string] => !!entry[1]);
+    const stream = streams.sort((a, b) => Number(b[0].match(/\d+/)?.[0] || 0) - Number(a[0].match(/\d+/)?.[0] || 0))[0]?.[1];
+    if (!stream) throw new Error('PLAYBACK_ENDPOINT_NOT_FOUND');
+    return { streamUrl: `/api/v1/shortmax-hls?url=${encodeURIComponent(stream)}`, mimeType: 'application/x-mpegURL', expiresAt: new Date(Date.now() + 120_000).toISOString() };
+  }
+
+  const items = await rawEpisodes(provider, slug);
   const episode = items.find((item) => item.episode_number === episodeNo || item._id === token);
   const video = episode?.videos?.filter((item): item is { quality?: number | string; url: string } => !!item.url).sort((a, b) => Number(b.quality) - Number(a.quality))[0];
   if (!video) throw new Error('PLAYBACK_ENDPOINT_NOT_FOUND');

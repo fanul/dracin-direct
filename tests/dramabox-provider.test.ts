@@ -66,7 +66,11 @@ describe('DramaBox direct provider', () => {
     expect((await searchShortMax('cinta'))[0].providerName).toBe('ShortMax');
     expect(mockFetch).toHaveBeenLastCalledWith(expect.stringContaining('/api/shortmax/search?q=cinta'), { cache: 'no-store' });
 
-    mockFetch.mockResolvedValueOnce(jsonResponse({ success: true, data: episodes }));
-    expect((await getShortMaxPlayback('pion-cinta', '1')).streamUrl).toBe('1080.mp4');
+    mockFetch.mockResolvedValueOnce(jsonResponse({ episode: { duration: 83, videoUrl: { video_720: '720.m3u8', video_1080: '1080.m3u8' } } }));
+    const playback = await getShortMaxPlayback('pion-cinta-8714', '1');
+    expect(playback.streamUrl).toContain('/api/v1/shortmax-hls?url=');
+    expect(decodeURIComponent(playback.streamUrl)).toContain('1080.m3u8');
+    expect(playback.mimeType).toBe('application/x-mpegURL');
+    expect(mockFetch).toHaveBeenLastCalledWith(expect.stringContaining('api.sansekai.my.id/api/shortmax/get-episode?shortPlayId=8714&episodeNumber=1'), { cache: 'no-store' });
   });
 });
