@@ -230,9 +230,11 @@ async function buildHomeData(
     }
   }));
   for (const item of sansekaiCatalogs) {
-    if (item.dramas.length && !providerResults.some((result) => result.provider === item.provider.slug)) {
-      providerResults.push({ provider: item.provider.slug, providerName: item.provider.name, dramas: item.dramas, success: true, latencyMs: 0 });
-    }
+    if (!item.dramas.length) continue;
+    const replacement = { provider: item.provider.slug, providerName: item.provider.name, dramas: item.dramas, success: true, latencyMs: 0 };
+    const index = providerResults.findIndex((result) => result.provider === item.provider.slug);
+    if (index >= 0) providerResults[index] = replacement;
+    else providerResults.push(replacement);
   }
 
   // Build provider sections from fetched data
@@ -277,18 +279,21 @@ async function buildHomeData(
     }
   }
   for (const item of sansekaiCatalogs) {
+    if (!item.dramas.length) continue;
     const info = sansekaiProviderInfo(item.provider, item.dramas.length);
     const existing = providersInfo.find((provider) => provider.slug === info.slug);
     if (existing) Object.assign(existing, info);
     else providersInfo.push(info);
   }
+  const activeSlugs = new Set(providerResults.filter((result) => result.dramas.length > 0).map((result) => result.provider));
+  const visibleProviders = providersInfo.filter((provider) => provider.contentCount > 0 || activeSlugs.has(provider.slug));
 
   // Ensure every active provider appears on homepage sections
   const mergedSectionMap = new Map(
     mergedProviderSections.map((section) => [section.provider.slug, section])
   );
 
-  const completeProviderSections = providersInfo.map((provider) => {
+  const completeProviderSections = visibleProviders.map((provider) => {
     const existing = mergedSectionMap.get(provider.slug);
     if (existing) {
       return {
@@ -319,7 +324,7 @@ async function buildHomeData(
     newReleases,
     providerSections: completeProviderSections,
     genres,
-    providers: providersInfo,
+    providers: visibleProviders,
   };
 }
 

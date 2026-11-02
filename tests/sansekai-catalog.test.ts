@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { normalizeSansekaiCatalog, sansekaiProviders } from '@/lib/providers/sansekai-catalog';
 
@@ -17,5 +18,11 @@ describe('Sansekai catalog normalization', () => {
 
   it('publishes the nine active SekaiDrama providers', () => {
     expect(sansekaiProviders.map((item) => item.slug)).toEqual(['pinedrama', 'dramabox', 'reelshort', 'shortmax', 'goodshort', 'netshort', 'melolo', 'freereels', 'flickreels']);
+  });
+
+  it('does not publish providers with empty catalogs', () => {
+    const home = readFileSync('src/app/api/v1/home/route.ts', 'utf8');
+    expect(home).toContain('if (!item.dramas.length) continue');
+    expect(home).toContain('providerResults[index] = replacement');
   });
 });
