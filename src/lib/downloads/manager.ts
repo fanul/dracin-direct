@@ -7,9 +7,9 @@ import { spawn } from 'node:child_process';
 
 export type DownloadStatus = 'queued' | 'downloading' | 'completed' | 'failed' | 'cancelled';
 export interface DownloadRequest { provider: string; dramaId: string; dramaTitle?: string; episodeId: string; episodeNo: number }
-export interface DownloadJob extends DownloadRequest { key: string; status: DownloadStatus; bytesDownloaded: number; totalBytes?: number; progress: number; file?: string; error?: string; createdAt: string; updatedAt: string }
+export interface DownloadJob extends DownloadRequest { key: string; status: DownloadStatus; bytesDownloaded: number; totalBytes?: number; progress: number; file?: string; error?: string; retryCount?: number; retryAt?: number; createdAt: string; updatedAt: string }
 type State = { maxConcurrency: number; jobs: DownloadJob[] };
-type Options = { root?: string; resolve: (job: DownloadRequest) => Promise<string>; fetch?: typeof fetch; autoStart?: boolean; ffmpeg?: string };
+type Options = { root?: string; resolve: (job: DownloadRequest) => Promise<string>; fetch?: typeof fetch; autoStart?: boolean; ffmpeg?: string; retryDelayMs?: number };
 
 export function safeSegment(value: string): string {
   let decoded: string;
@@ -89,8 +89,13 @@ export class DownloadManager {
   }
   private pump() {
     while (this.active.size < this.state.maxConcurrency) {
-      const job = this.state.jobs.find((item) => item.status === 'queued');
-      if (!job) break;
+      const now = Date.now();
+      const job = this.state.jobs.find((item) => item.status === 'queued' && (!item.retryAt || item.retryAt <= now));
+      if (!job) {
+        const retryAt = Math.min(...this.state.jobs.filter((item) => item.status === 'queued' && item.retryAt && item.retryAt > now).map((item) => item.retryAt!));
+        if (Number.isFinite(retryAt)) setTimeout(() => this.pump(), Math.max(1, retryAt - now));
+        break;
+      }
       const controller = new AbortController(); this.active.set(job.key, controller); job.status = 'downloading';
       void this.download(job, controller.signal).finally(() => { this.active.delete(job.key); if (this.started) this.pump(); });
     }
@@ -129,7 +134,12 @@ export class DownloadManager {
       await rename(part, target); Object.assign(job, { status: 'completed', progress: 100, file: target, updatedAt: new Date().toISOString() });
     } catch (error) {
       if (part) await rm(part, { force: true });
-      if (job.status !== 'cancelled') Object.assign(job, { status: 'failed', error: error instanceof Error ? error.message : 'Download failed', updatedAt: new Date().toISOString() });
+      const message = error instanceof Error ? error.message : 'Download failed';
+      const transient = /RATE_LIMITED|HTTP 429|HTTP 5\d\d|SANSEKAI_UPSTREAM_429|SANSEKAI_UPSTREAM_5\d\d/i.test(message);
+      if (job.status !== 'cancelled' && transient) {
+        const retryCount = (job.retryCount || 0) + 1;
+        Object.assign(job, { status: 'queued', retryCount, retryAt: Date.now() + (this.options.retryDelayMs ?? Math.min(60_000, 2 ** Math.min(retryCount, 6) * 1000)), error: message, updatedAt: new Date().toISOString() });
+      } else if (job.status !== 'cancelled') Object.assign(job, { status: 'failed', error: message, updatedAt: new Date().toISOString() });
     } finally { await this.persist(); }
   }
 }

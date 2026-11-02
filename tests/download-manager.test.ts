@@ -79,6 +79,33 @@ describe('download manager', () => {
     expect((await waitFor(manager, 'completed')).status).toBe('completed');
     await manager.idle();
   });
+
+  it('queues the whole batch, limits active workers, and retries transient failures', async () => {
+    const dir = await root();
+    let active = 0, peak = 0, attempts = 0;
+    const manager = new DownloadManager({
+      root: dir,
+      retryDelayMs: 5,
+      resolve: async () => {
+        attempts++;
+        if (attempts <= 12) throw new Error('RATE_LIMITED');
+        return 'https://media.test/video.mp4';
+      },
+      fetch: async () => {
+        active++; peak = Math.max(peak, active);
+        await new Promise((resolve) => setTimeout(resolve, 5)); active--;
+        return new Response('ok');
+      },
+    });
+    await manager.ready();
+    await manager.setMaxConcurrency(10);
+    const requests = Array.from({ length: 25 }, (_, index) => ({ ...job, episodeId: String(index + 1), episodeNo: index + 1 }));
+    expect(await manager.enqueueAll(requests)).toHaveLength(25);
+    for (let i = 0; i < 300 && manager.list().jobs.some((item) => item.status !== 'completed'); i++) await new Promise((resolve) => setTimeout(resolve, 10));
+    expect(manager.list().jobs).toHaveLength(25);
+    expect(manager.list().jobs.every((item) => item.status === 'completed')).toBe(true);
+    expect(peak).toBeLessThanOrEqual(10);
+  });
 });
 
 describe('local media response', () => {
