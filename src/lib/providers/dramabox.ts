@@ -35,6 +35,14 @@ async function detail(provider: DirectProvider, slug: string): Promise<DramaDeta
     if (!item.bookId || !item.bookName) return null;
     return { id: `dramabox:${item.bookId}`, providerSlug: 'dramabox', providerDramaId: item.bookId, title: item.bookName, coverUrl: item.coverWap || '', episodeCount: item.chapterCount || 0, tags: item.tags || [], isPremium: false, providerName: 'DramaBox', vipLevel: 'FREE', synopsis: item.introduction || '', genres: item.tags || [], language: 'id', lastUpdated: item.shelfTime || new Date(0).toISOString() };
   }
+  if (provider === 'shortmax' && /^\d+$/.test(slug)) {
+    const response = await fetch(`https://api.sansekai.my.id/api/shortmax/detail?shortPlayId=${encodeURIComponent(slug)}&lang=id`, { cache: 'no-store', headers: sansekaiHeaders });
+    if (!response.ok) throw new Error(`SHORTMAX_DETAIL_UPSTREAM_${response.status}`);
+    const root = await response.json() as Record<string, unknown>;
+    const item = (root.data && typeof root.data === 'object' ? root.data : root) as Record<string, unknown>;
+    const labels = Array.isArray(item.labelResponseList) ? item.labelResponseList.map((label) => typeof label === 'string' ? label : String((label as Record<string, unknown>).labelName || '')).filter(Boolean) : [];
+    return { id: `shortmax:${slug}`, providerSlug: 'shortmax', providerDramaId: slug, title: String(item.shortPlayName || item.title || 'ShortMax'), coverUrl: String(item.picUrl || item.cover || ''), episodeCount: Number(item.totalEpisodes || item.episodeCount || 0), tags: labels, isPremium: false, providerName: 'ShortMax', vipLevel: 'FREE', synopsis: String(item.summary || item.description || ''), genres: labels, language: 'id', lastUpdated: new Date(0).toISOString() };
+  }
   const payload = await get<{ data?: Drama }>(`/api/${provider}/detail/${encodeURIComponent(slug)}`);
   const card = payload.data ? mapDrama(payload.data, provider) : null;
   if (!card || !payload.data) return null;
@@ -74,7 +82,7 @@ async function playback(provider: DirectProvider, slug: string, token: string): 
   }
   if (provider === 'shortmax') {
     const legacyId = slug.match(/-(\d+)$/)?.[1];
-    const shortPlayId = slug === 'kembalinya-pengantin-yang-ditolak-7906' ? '8714' : legacyId;
+    const shortPlayId = /^\d+$/.test(slug) ? slug : slug === 'kembalinya-pengantin-yang-ditolak-7906' ? '8714' : legacyId;
     if (!shortPlayId || !Number.isFinite(episodeNo)) throw new Error('PLAYBACK_ENDPOINT_NOT_FOUND');
     const response = await fetch(`https://api.sansekai.my.id/api/shortmax/get-episode?shortPlayId=${encodeURIComponent(shortPlayId)}&episodeNumber=${episodeNo}&lang=id`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`SHORTMAX_PLAYBACK_UPSTREAM_${response.status}`);
@@ -107,7 +115,11 @@ export const fetchShortMaxDetail = (slug: string) => detail('shortmax', slug);
 export const fetchDramaBoxEpisodes = async (slug: string) => /^\d+$/.test(slug)
   ? (await sansekaiDramaBoxEpisodes(slug)).map((episode) => ({ episodeId: episode.chapterId, providerEpisodeId: String(episode.chapterIndex + 1), episodeNo: episode.chapterIndex + 1, title: episode.chapterName || `Episode ${episode.chapterIndex + 1}`, durationMs: (episode.viewingDuration || 0) * 1000, isLocked: false }))
   : mapEpisodes(await rawEpisodes('dramabox', slug));
-export const fetchShortMaxEpisodes = async (slug: string) => mapEpisodes(await rawEpisodes('shortmax', slug));
+export const fetchShortMaxEpisodes = async (slug: string) => {
+  if (!/^\d+$/.test(slug)) return mapEpisodes(await rawEpisodes('shortmax', slug));
+  const item = await detail('shortmax', slug);
+  return Array.from({ length: item?.episodeCount || 0 }, (_, index) => ({ episodeId: String(index + 1), providerEpisodeId: String(index + 1), episodeNo: index + 1, title: `Episode ${index + 1}`, durationMs: 0, isLocked: false }));
+};
 export const getDramaBoxPlayback = (slug: string, token: string) => playback('dramabox', slug, token);
 export const getShortMaxPlayback = (slug: string, token: string) => playback('shortmax', slug, token);
 
