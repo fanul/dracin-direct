@@ -13,7 +13,7 @@ import { logger, generateRequestId } from '@/lib/observability/logger';
 import { preflightEnvCheck, getLaunchModeConfig } from '@/lib/config/env';
 import { getCacheManager } from '@/lib/cache/redis';
 import { fetchHomeFromProviders } from '@/lib/services/provider-aggregator';
-import { dramaBoxProvider, fetchDramaBoxCatalog, fetchShortMaxCatalog, shortMaxProvider } from '@/lib/providers/dramabox';
+import { dramaBoxProvider, fetchDramaBoxCatalog, fetchDramaBoxLatest, fetchDramaBoxRecommended, fetchDramaBoxTrending, fetchShortMaxCatalog, fetchShortMaxRegular, shortMaxProvider } from '@/lib/providers/dramabox';
 import { createProviderHealthGate, getLatestProviderHealthReport } from '@/lib/homepage/quality';
 import { getLaunchCachePolicy } from '@/lib/providers/launch-cache-policy';
 import type { ApiResponse, HomeResponseData, NewReleaseGroup, ContinueWatchingItem, GenreData, DramaCard, ProviderInfo } from '@/lib/types';
@@ -202,9 +202,13 @@ async function buildHomeData(
     providerResultsPromise,
   ]);
 
-  const [dramaBoxDramas, shortMaxDramas] = await Promise.all([
+  const [dramaBoxDramas, shortMaxDramas, directRecommended, directTrending, directLatest, directShortMax] = await Promise.all([
     fetchDramaBoxCatalog(1).catch(() => []),
     fetchShortMaxCatalog(1).catch(() => []),
+    fetchDramaBoxRecommended(1).catch(() => []),
+    fetchDramaBoxTrending(1).catch(() => []),
+    fetchDramaBoxLatest(1).catch(() => []),
+    fetchShortMaxRegular(1).catch(() => []),
   ]);
   providerResults.push(
     { provider: 'dramabox', providerName: 'DramaBox', dramas: dramaBoxDramas, success: dramaBoxDramas.length > 0, latencyMs: 0 },
@@ -216,6 +220,7 @@ async function buildHomeData(
 
   // Group new releases by time period
   const newReleases = groupNewReleases(newReleasesData);
+  if (directLatest.length > 0) newReleases.unshift({ period: 'today', label: 'Terbaru DramaBox', dramas: directLatest });
 
   // Merge static and dynamic provider sections with deduplication
   // Prefer dynamic sections (from API) over static sections (from DB)
@@ -283,8 +288,8 @@ async function buildHomeData(
   return {
     featured,
     continueWatching,
-    forYou,
-    trending,
+    forYou: forYou.length > 0 ? forYou : directRecommended,
+    trending: trending.length > 0 ? trending : [...directTrending, ...directShortMax].slice(0, 20).map((drama, index) => ({ ...drama, rank: index + 1 })),
     newReleases,
     providerSections: completeProviderSections,
     genres,

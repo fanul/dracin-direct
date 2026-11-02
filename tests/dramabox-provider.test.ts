@@ -24,12 +24,12 @@ describe('DramaBox direct provider', () => {
   beforeEach(() => { vi.clearAllMocks(); vi.stubGlobal('fetch', mockFetch); delete process.env.DRAMA_API_BASE_URL; });
 
   it('serves catalog without a provider DB row', async () => {
-    mockFetch.mockResolvedValueOnce(jsonResponse({ success: true, data: [drama] }));
+    mockFetch.mockResolvedValue(jsonResponse({ success: true, data: [drama] }));
     const { GET } = await import('@/app/api/v1/providers/[slug]/route');
     const response = await GET(new Request('http://localhost/api/v1/providers/dramabox?page=2'), { params: Promise.resolve({ slug: 'dramabox' }) });
     const payload = await response.json();
     expect(response.status).toBe(200);
-    expect(mockFetch).toHaveBeenCalledWith('https://api-all-drama-new.vercel.app/api/dramabox/terbaru?page=2', { cache: 'no-store' });
+    expect(mockFetch).toHaveBeenCalledWith('https://api-all-drama-new.vercel.app/api/dramabox/recommended?page=2', { cache: 'no-store' });
     expect(payload.data.provider.slug).toBe('dramabox');
     expect(payload.data.dramas[0]).toMatchObject({ providerDramaId: 'pion-cinta', episodeCount: 2 });
   });
@@ -58,9 +58,9 @@ describe('DramaBox direct provider', () => {
 
   it('supports direct ShortMax catalog, search, and highest-quality playback', async () => {
     const { fetchShortMaxCatalog, searchShortMax, getShortMaxPlayback } = await import('@/lib/providers/dramabox');
-    mockFetch.mockResolvedValueOnce(jsonResponse({ success: true, data: [drama] }));
+    mockFetch.mockResolvedValue(jsonResponse({ success: true, data: [drama] }));
     expect((await fetchShortMaxCatalog(3))[0].providerSlug).toBe('shortmax');
-    expect(mockFetch).toHaveBeenLastCalledWith(expect.stringContaining('/api/shortmax/homepage?page=3'), { cache: 'no-store' });
+    expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/api/shortmax/homepage?page=3'), { cache: 'no-store' });
 
     mockFetch.mockResolvedValueOnce(jsonResponse({ success: true, data: [drama] }));
     expect((await searchShortMax('cinta'))[0].providerName).toBe('ShortMax');

@@ -12,6 +12,7 @@ import {
   HorizontalDramaSection,
   NewReleasesSection,
   GenreGridSection,
+  ProviderSections,
 } from '@/app/components/home';
 
 // Loading State Component
@@ -163,6 +164,8 @@ export default function HomePage() {
                 animationDelay={200}
               />
             )}
+
+            <ProviderSections sections={data.providerSections} expandedCount={2} />
 
             {/* Featured Providers Section */}
             {featuredProviders.length > 0 && (

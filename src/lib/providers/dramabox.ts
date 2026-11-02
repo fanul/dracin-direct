@@ -16,9 +16,13 @@ function mapDrama(item: Drama, provider: DirectProvider): DramaCard | null {
   return { id: `${provider}:${item.slug}`, providerSlug: provider, providerDramaId: item.slug, title: item.title, coverUrl: item.cover_image_url || '', episodeCount: item.chapter_count || 0, tags: item.details?.genres || [], isPremium: item.is_vip_only === true, providerName: provider === 'dramabox' ? 'DramaBox' : 'ShortMax', vipLevel: 'FREE' };
 }
 
-async function cards(provider: DirectProvider, path: string): Promise<DramaCard[]> {
+async function cards(provider: DirectProvider, path: string, category?: string): Promise<DramaCard[]> {
   const payload = await get<{ data?: Drama[] }>(path);
-  return (payload.data || []).map((item) => mapDrama(item, provider)).filter((item): item is DramaCard => item !== null);
+  return (payload.data || []).map((item) => mapDrama(item, provider)).filter((item): item is DramaCard => item !== null).map((item) => category && !item.tags.includes(category) ? { ...item, tags: [category, ...item.tags] } : item);
+}
+
+function dedupe(items: DramaCard[]): DramaCard[] {
+  return [...new Map(items.map((item) => [item.providerDramaId, item])).values()];
 }
 
 async function detail(provider: DirectProvider, slug: string): Promise<DramaDetail | null> {
@@ -62,8 +66,14 @@ async function playback(provider: DirectProvider, slug: string, token: string): 
   return { streamUrl: video.url, mimeType: 'video/mp4', expiresAt: new Date(Date.now() + 120_000).toISOString() };
 }
 
-export const fetchDramaBoxCatalog = (page: number) => cards('dramabox', `/api/dramabox/terbaru?page=${page}`);
-export const fetchShortMaxCatalog = (page: number) => cards('shortmax', `/api/shortmax/homepage?page=${page}`);
+export const fetchDramaBoxRecommended = (page: number) => cards('dramabox', `/api/dramabox/recommended?page=${page}`, 'Untukmu');
+export const fetchDramaBoxTrending = (page: number) => cards('dramabox', `/api/dramabox/trending?page=${page}`, 'Trending');
+export const fetchDramaBoxDubIndo = (page: number) => cards('dramabox', `/api/dramabox/dubindo?page=${page}`, 'Dub Indonesia');
+export const fetchDramaBoxLatest = (page: number) => cards('dramabox', `/api/dramabox/terbaru?page=${page}`, 'Terbaru');
+export const fetchShortMaxRegular = (page: number) => cards('shortmax', `/api/shortmax/homepage?page=${page}`, 'Reguler');
+export const fetchShortMaxVip = (page: number) => cards('shortmax', `/api/shortmax/vip?page=${page}`, 'VIP & Dub');
+export const fetchDramaBoxCatalog = async (page: number) => dedupe((await Promise.all([fetchDramaBoxRecommended(page), fetchDramaBoxDubIndo(page), fetchDramaBoxTrending(page), fetchDramaBoxLatest(page)])).flat());
+export const fetchShortMaxCatalog = async (page: number) => dedupe((await Promise.all([fetchShortMaxRegular(page), fetchShortMaxVip(page)])).flat());
 export const searchDramaBox = (query: string) => cards('dramabox', `/api/dramabox/search?q=${encodeURIComponent(query)}`);
 export const searchShortMax = (query: string) => cards('shortmax', `/api/shortmax/search?q=${encodeURIComponent(query)}`);
 export const fetchDramaBoxDetail = (slug: string) => detail('dramabox', slug);
