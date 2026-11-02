@@ -10,5 +10,7 @@ describe('ShortMax Sansekai playback', () => {
     expect(provider).toContain("'kembalinya-pengantin-yang-ditolak-7906' ? '8714'");
     expect(proxy).toContain("const ALLOWED_HOST = 'volcengine-forward.shorttv.live'");
     expect(proxy).toContain("crypto.createDecipheriv('aes-128-cbc'");
+    expect(proxy).toContain('const proxyPath = (url: string) => `/api/v1/shortmax-hls?url=');
+    expect(proxy).not.toContain('requestUrl.origin');
   });
 });

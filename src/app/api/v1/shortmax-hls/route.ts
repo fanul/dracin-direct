@@ -36,12 +36,12 @@ export async function GET(request: Request): Promise<Response> {
     const buffer = Buffer.from(await upstream.arrayBuffer());
     const isPlaylist = upstreamUrl.pathname.endsWith('.m3u8') || buffer.subarray(0, 7).toString().includes('#EXTM3U');
     if (isPlaylist) {
-      const origin = requestUrl.origin;
+      const proxyPath = (url: string) => `/api/v1/shortmax-hls?url=${encodeURIComponent(url)}`;
       const playlist = buffer.toString('utf8').split(/\r?\n/).map((line) => {
         const value = line.trim();
         if (!value) return line;
-        if (value.startsWith('#')) return line.replace(/URI="([^"]+)"/g, (_match, uri: string) => `URI="${origin}/api/v1/shortmax-hls?url=${encodeURIComponent(new URL(uri, upstreamUrl).href)}"`);
-        return `${origin}/api/v1/shortmax-hls?url=${encodeURIComponent(new URL(value, upstreamUrl).href)}`;
+        if (value.startsWith('#')) return line.replace(/URI="([^"]+)"/g, (_match, uri: string) => `URI="${proxyPath(new URL(uri, upstreamUrl).href)}"`);
+        return proxyPath(new URL(value, upstreamUrl).href);
       }).join('\n');
       return new NextResponse(playlist, { headers: { 'Content-Type': 'application/vnd.apple.mpegurl', 'Cache-Control': 'no-store', 'Access-Control-Allow-Origin': '*' } });
     }
