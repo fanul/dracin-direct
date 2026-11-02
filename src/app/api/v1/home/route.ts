@@ -14,6 +14,7 @@ import { preflightEnvCheck, getLaunchModeConfig } from '@/lib/config/env';
 import { getCacheManager } from '@/lib/cache/redis';
 import { fetchHomeFromProviders } from '@/lib/services/provider-aggregator';
 import { dramaBoxProvider, fetchDramaBoxCatalog, fetchDramaBoxLatest, fetchDramaBoxRecommended, fetchDramaBoxTrending, fetchShortMaxCatalog, fetchShortMaxRegular, shortMaxProvider } from '@/lib/providers/dramabox';
+import { fetchSansekaiCatalog, sansekaiProviderInfo, sansekaiProviders } from '@/lib/providers/sansekai-catalog';
 import { createProviderHealthGate, getLatestProviderHealthReport } from '@/lib/homepage/quality';
 import { getLaunchCachePolicy } from '@/lib/providers/launch-cache-policy';
 import type { ApiResponse, HomeResponseData, NewReleaseGroup, ContinueWatchingItem, GenreData, DramaCard, ProviderInfo } from '@/lib/types';
@@ -215,6 +216,25 @@ async function buildHomeData(
     { provider: 'shortmax', providerName: 'ShortMax', dramas: shortMaxDramas, success: shortMaxDramas.length > 0, latencyMs: 0 },
   );
 
+  const sansekaiCatalogs = await Promise.all(sansekaiProviders.map(async (provider) => {
+    const cache = getCacheManager();
+    const key = `sansekai:catalog:v1:${provider.slug}`;
+    const cached = await cache.get<DramaCard[]>(key);
+    if (cached?.length) return { provider, dramas: cached };
+    try {
+      const dramas = await fetchSansekaiCatalog(provider);
+      if (dramas.length) await cache.set(key, dramas, 6 * 60 * 60);
+      return { provider, dramas };
+    } catch {
+      return { provider, dramas: [] };
+    }
+  }));
+  for (const item of sansekaiCatalogs) {
+    if (item.dramas.length && !providerResults.some((result) => result.provider === item.provider.slug)) {
+      providerResults.push({ provider: item.provider.slug, providerName: item.provider.name, dramas: item.dramas, success: true, latencyMs: 0 });
+    }
+  }
+
   // Build provider sections from fetched data
   const dynamicProviderSections = buildProviderSectionsFromResults(providerResults);
 
@@ -255,6 +275,12 @@ async function buildHomeData(
     if (!providersInfo.some((item) => item.slug === provider.slug)) {
       providersInfo.push({ slug: provider.slug, name: provider.name, contentCount: provider.dramaCount, isNew: true });
     }
+  }
+  for (const item of sansekaiCatalogs) {
+    const info = sansekaiProviderInfo(item.provider, item.dramas.length);
+    const existing = providersInfo.find((provider) => provider.slug === info.slug);
+    if (existing) Object.assign(existing, info);
+    else providersInfo.push(info);
   }
 
   // Ensure every active provider appears on homepage sections

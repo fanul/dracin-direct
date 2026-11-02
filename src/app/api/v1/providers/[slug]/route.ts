@@ -8,6 +8,7 @@ import { dedupeNetshortVariantsByTitle, pickPreferredNetshortVariant } from '@/l
 import { logger, generateRequestId } from '@/lib/observability/logger';
 import type { ApiResponse, DramaCard } from '@/lib/types';
 import { dramaBoxProvider, fetchDramaBoxCatalog, fetchShortMaxCatalog, shortMaxProvider } from '@/lib/providers/dramabox';
+import { fetchSansekaiCatalog, sansekaiProviders } from '@/lib/providers/sansekai-catalog';
 
 export interface ProviderResponse {
     provider: {
@@ -244,7 +245,8 @@ export async function GET(
     const genre = searchParams.get('genre') || undefined;
 
     try {
-        const provider = slug === 'dramabox' ? dramaBoxProvider : slug === 'shortmax' ? shortMaxProvider : await getProviderBySlug(slug);
+        const sansekaiProvider = sansekaiProviders.find((item) => item.slug === slug && ['pinedrama', 'melolo', 'freereels', 'flickreels'].includes(item.slug));
+        const provider = slug === 'dramabox' ? dramaBoxProvider : slug === 'shortmax' ? shortMaxProvider : sansekaiProvider ? { id: slug, slug, name: sansekaiProvider.name, rating: 0, dramaCount: 0, episodeCount: 0, status: 'active' as const, description: sansekaiProvider.name, logoUrl: undefined, websiteUrl: undefined } : await getProviderBySlug(slug);
 
         if (!provider) {
             const response: ApiResponse<null> = {
@@ -259,8 +261,9 @@ export async function GET(
             return NextResponse.json(response, { status: 404 });
         }
 
-        if (slug === 'dramabox' || slug === 'shortmax') {
-            const dramas = applyGenreFilter(await (slug === 'dramabox' ? fetchDramaBoxCatalog(page) : fetchShortMaxCatalog(page)), genre).slice(0, limit);
+        if (slug === 'dramabox' || slug === 'shortmax' || sansekaiProvider) {
+            const catalog = slug === 'dramabox' ? await fetchDramaBoxCatalog(page) : slug === 'shortmax' ? await fetchShortMaxCatalog(page) : await fetchSansekaiCatalog(sansekaiProvider!);
+            const dramas = applyGenreFilter(catalog, genre).slice(0, limit);
             const genres = [...new Set(dramas.flatMap((drama) => drama.tags))];
             return NextResponse.json({
                 data: { provider, dramas, genres, pagination: { page, limit, total: dramas.length, hasMore: dramas.length === limit } },
