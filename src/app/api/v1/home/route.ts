@@ -13,6 +13,7 @@ import { logger, generateRequestId } from '@/lib/observability/logger';
 import { preflightEnvCheck, getLaunchModeConfig } from '@/lib/config/env';
 import { getCacheManager } from '@/lib/cache/redis';
 import { fetchHomeFromProviders } from '@/lib/services/provider-aggregator';
+import { dramaBoxProvider, fetchDramaBoxCatalog, fetchShortMaxCatalog, shortMaxProvider } from '@/lib/providers/dramabox';
 import { createProviderHealthGate, getLatestProviderHealthReport } from '@/lib/homepage/quality';
 import { getLaunchCachePolicy } from '@/lib/providers/launch-cache-policy';
 import type { ApiResponse, HomeResponseData, NewReleaseGroup, ContinueWatchingItem, GenreData, DramaCard, ProviderInfo } from '@/lib/types';
@@ -191,15 +192,24 @@ async function buildHomeData(
     genres,
     providerResults,
   ] = await Promise.all([
-    getCachedFeatured(),
-    getCachedTrending(),
-    getCachedNewReleases(),
-    getProviderSections(),
-    getForYouDramas(10),
-    userId ? getContinueWatching(userId) : Promise.resolve(null),
-    getGenres(),
+    getCachedFeatured().catch(() => []),
+    getCachedTrending().catch(() => []),
+    getCachedNewReleases().catch(() => []),
+    getProviderSections().catch(() => []),
+    getForYouDramas(10).catch(() => []),
+    userId ? getContinueWatching(userId).catch(() => []) : Promise.resolve(null),
+    getGenres().catch(() => []),
     providerResultsPromise,
   ]);
+
+  const [dramaBoxDramas, shortMaxDramas] = await Promise.all([
+    fetchDramaBoxCatalog(1).catch(() => []),
+    fetchShortMaxCatalog(1).catch(() => []),
+  ]);
+  providerResults.push(
+    { provider: 'dramabox', providerName: 'DramaBox', dramas: dramaBoxDramas, success: dramaBoxDramas.length > 0, latencyMs: 0 },
+    { provider: 'shortmax', providerName: 'ShortMax', dramas: shortMaxDramas, success: shortMaxDramas.length > 0, latencyMs: 0 },
+  );
 
   // Build provider sections from fetched data
   const dynamicProviderSections = buildProviderSectionsFromResults(providerResults);
@@ -224,7 +234,7 @@ async function buildHomeData(
   const mergedProviderSections = Array.from(sectionMap.values());
 
   // Get all active providers with content count from database
-  const allProviders = await getActiveProviders();
+  const allProviders = await getActiveProviders().catch(() => []);
 
   // Map to ProviderInfo type
   const providersInfo: ProviderInfo[] = allProviders.map(p => ({
@@ -233,6 +243,14 @@ async function buildHomeData(
     contentCount: p.dramaCount,
     isNew: false,
   }));
+  for (const provider of [
+    { ...dramaBoxProvider, dramaCount: dramaBoxDramas.length },
+    { ...shortMaxProvider, dramaCount: shortMaxDramas.length },
+  ]) {
+    if (!providersInfo.some((item) => item.slug === provider.slug)) {
+      providersInfo.push({ slug: provider.slug, name: provider.name, contentCount: provider.dramaCount, isNew: true });
+    }
+  }
 
   // Ensure every active provider appears on homepage sections
   const mergedSectionMap = new Map(
