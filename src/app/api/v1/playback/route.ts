@@ -7,6 +7,7 @@ import { getCacheManager, createPlaybackKey, CACHE_TTL } from '@/lib/cache/redis
 import { logger, generateRequestId } from '@/lib/observability/logger';
 import { validateSearchParams, playbackRequestSchema } from '@/lib/validation/schemas';
 import type { ApiResponse, PlaybackResponse, SubtitleTrack } from '@/lib/types';
+import { downloads } from '@/lib/downloads';
 
 export const dynamic = 'force-dynamic';
 
@@ -198,6 +199,15 @@ export async function GET(request: Request): Promise<NextResponse> {
   }
 
   try {
+    await downloads.ready();
+    const localFile = /^\d+$/.test(episodeId) ? downloads.local(provider, dramaId, Number(episodeId)) : undefined;
+    if (localFile) {
+      const local: ApiResponse<PlaybackResponse> = {
+        data: { streamUrl: `/api/v1/media?provider=${encodeURIComponent(provider)}&drama=${encodeURIComponent(dramaId)}&episode=${episodeId}`, expiresAt: new Date(Date.now() + 86_400_000).toISOString() },
+        meta: { requestId, timestamp: new Date().toISOString(), cache: 'hit' }, error: null,
+      };
+      return NextResponse.json(local);
+    }
     let resolvedEpisodeId = episodeId;
 
     if (/^\d+$/.test(episodeId)) {

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Lock } from 'lucide-react';
 import type { EpisodeItem } from '@/lib/types';
+import { EpisodeDownloadButton } from './EpisodeDownloadButton';
 
 interface EpisodeListProps {
     episodes: EpisodeItem[];
@@ -42,6 +43,7 @@ export function EpisodeList({
                     >
                         {isLocked && <Lock size={12} />}
                         <span className="font-medium whitespace-nowrap">Ep {ep.episodeNo}</span>
+                        {!isLocked && <EpisodeDownloadButton episode={ep} provider={providerSlug} dramaId={providerDramaId} />}
                     </Link>
                 );
             })}
