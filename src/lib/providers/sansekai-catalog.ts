@@ -19,21 +19,24 @@ export const sansekaiProviders: Config[] = [
 const first = (value: Record<string, unknown>, keys: string[]) => keys.map((key) => value[key]).find((item) => typeof item === 'string' || typeof item === 'number');
 const strings = (value: unknown): string[] => Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
 
+const idKeys = ['collection_id', 'bookId', 'playlet_id', 'playletId', 'shortPlayId', 'book_id', 'key'];
+const titleKeys = ['title', 'bookName', 'name', 'book_name', 'shortPlayName', 'book_title'];
+
 function objects(value: unknown, depth = 0): Record<string, unknown>[] {
-  if (depth > 5 || value == null) return [];
+  if (depth > 8 || value == null) return [];
   if (Array.isArray(value)) return value.flatMap((item) => objects(item, depth + 1));
   if (typeof value !== 'object') return [];
   const item = value as Record<string, unknown>;
-  const own = first(item, ['collection_id', 'bookId', 'playlet_id', 'playletId', 'shortPlayId', 'book_id', 'key', 'id']) && first(item, ['title', 'bookName', 'name', 'book_name']) ? [item] : [];
+  const own = first(item, idKeys) != null && first(item, titleKeys) != null ? [item] : [];
   return [...own, ...Object.values(item).flatMap((child) => objects(child, depth + 1))];
 }
 
 export function normalizeSansekaiCatalog(payload: unknown, config: Config): DramaCard[] {
   const cards = objects(payload).flatMap((item): DramaCard[] => {
-    const id = first(item, ['collection_id', 'bookId', 'playlet_id', 'playletId', 'shortPlayId', 'book_id', 'key', 'id']);
-    const title = first(item, ['title', 'bookName', 'name', 'book_name']);
-    if (id == null || title == null) return [];
-    const cover = first(item, ['cover', 'coverWap', 'thumb_url', 'image', 'imageUrl', 'dynamic_cover']);
+    const id = first(item, idKeys);
+    const title = first(item, titleKeys);
+    if (id == null || id === '' || title == null) return [];
+    const cover = first(item, ['cover', 'coverWap', 'thumb_url', 'image', 'imageUrl', 'dynamic_cover', 'shortPlayCover', 'book_pic']);
     const count = first(item, ['total_episodes', 'chapterCount', 'upload_num', 'totalEpisodes', 'serial_count', 'episode_count']);
     const tags = [config.category, ...strings(item.tags), ...strings(item.labels), ...strings(item.playlet_tag_name), ...strings(item.tagNames)];
     return [{ id: `${config.slug}:${id}`, providerSlug: config.slug, providerDramaId: String(id), title: String(title), coverUrl: cover == null ? '' : String(cover), episodeCount: Number(count) || 0, tags: [...new Set(tags)], isPremium: false, providerName: config.name, vipLevel: 'FREE' }];

@@ -6,6 +6,8 @@ import { logger, generateRequestId } from '@/lib/observability/logger';
 import { validatePathParams, dramaDetailPathSchema } from '@/lib/validation/schemas';
 import type { ApiResponse, DramaDetail, DramaCard } from '@/lib/types';
 import { fetchDramaBoxDetail, fetchShortMaxDetail } from '@/lib/providers/dramabox';
+import { fetchFlickReelsDetail, fetchFreeReelsDetail } from '@/lib/providers/sansekai-reels';
+import { fetchSansekaiDetail, type SansekaiPlayableProvider } from '@/lib/providers/sansekai';
 
 export interface DramaDetailResponse {
   drama: DramaDetail;
@@ -54,6 +56,18 @@ export async function GET(
     }
     if (normalizedId.startsWith('shortmax:')) {
       const drama = await fetchShortMaxDetail(normalizedId.slice('shortmax:'.length));
+      if (drama) return NextResponse.json({ data: { drama, related: [] }, meta: { requestId, timestamp: new Date().toISOString() }, error: null } satisfies ApiResponse<DramaDetailResponse>);
+    }
+    if (normalizedId.startsWith('flickreels:') || normalizedId.startsWith('freereels:')) {
+      const flick = normalizedId.startsWith('flickreels:');
+      const slug = normalizedId.slice((flick ? 'flickreels:' : 'freereels:').length);
+      const drama = await (flick ? fetchFlickReelsDetail(slug) : fetchFreeReelsDetail(slug));
+      if (drama) return NextResponse.json({ data: { drama, related: [] }, meta: { requestId, timestamp: new Date().toISOString() }, error: null } satisfies ApiResponse<DramaDetailResponse>);
+    }
+    const directProvider = ['pinedrama', 'goodshort', 'melolo', 'netshort', 'reelshort'].find((provider) => normalizedId.startsWith(`${provider}:`)) as SansekaiPlayableProvider | undefined;
+    const directId = directProvider ? normalizedId.slice(directProvider.length + 1) : '';
+    if (directProvider && /^\d+$/.test(directId)) {
+      const drama = await fetchSansekaiDetail(directProvider, directId);
       if (drama) return NextResponse.json({ data: { drama, related: [] }, meta: { requestId, timestamp: new Date().toISOString() }, error: null } satisfies ApiResponse<DramaDetailResponse>);
     }
 

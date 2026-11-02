@@ -25,4 +25,9 @@ describe('Sansekai catalog normalization', () => {
     expect(home).toContain('if (!item.dramas.length) continue');
     expect(home).toContain('providerResults[index] = replacement');
   });
+
+  it('advertises only providers with verified end-to-end adapters', () => {
+    const home = readFileSync('src/app/api/v1/home/route.ts', 'utf8');
+    expect(home).toContain("new Set(['dramabox', 'shortmax', 'pinedrama', 'goodshort', 'flickreels', 'freereels', 'melolo', 'netshort', 'reelshort'])");
+  });
 });

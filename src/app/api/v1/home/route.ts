@@ -286,7 +286,7 @@ async function buildHomeData(
     else providersInfo.push(info);
   }
   // Only advertise providers whose current catalog IDs pass detail → episodes → playback.
-  const playableProviders = new Set(['dramabox', 'shortmax']);
+  const playableProviders = new Set(['dramabox', 'shortmax', 'pinedrama', 'goodshort', 'flickreels', 'freereels', 'melolo', 'netshort', 'reelshort']);
   const activeSlugs = new Set(providerResults.filter((result) => result.dramas.length > 0 && playableProviders.has(result.provider)).map((result) => result.provider));
   const visibleProviders = providersInfo.filter((provider) => playableProviders.has(provider.slug) && (provider.contentCount > 0 || activeSlugs.has(provider.slug)));
 

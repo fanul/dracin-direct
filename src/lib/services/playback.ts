@@ -5,6 +5,8 @@ import { getRateLimiter } from '../rate-limit/upstash';
 import { logger } from '../observability/logger';
 import type { PlaybackResponse } from '../types';
 import { getDramaBoxPlayback, getShortMaxPlayback } from '../providers/dramabox';
+import { getFlickReelsPlayback, getFreeReelsPlayback } from '../providers/sansekai-reels';
+import { getSansekaiPlayback, type SansekaiPlayableProvider } from '../providers/sansekai';
 
 const captainToken = process.env.CAPTAIN_API_TOKEN || '';
 const captainClient = createCaptainClient(captainToken);
@@ -97,6 +99,9 @@ export async function getPlaybackUrl(
   if (providerSlug === 'shortmax') {
     return getShortMaxPlayback(providerDramaId, providerEpisodeId);
   }
+  if (providerSlug === 'flickreels') return getFlickReelsPlayback(providerDramaId, providerEpisodeId);
+  if (providerSlug === 'freereels') return getFreeReelsPlayback(providerDramaId, providerEpisodeId);
+  if (['pinedrama', 'goodshort', 'melolo', 'netshort', 'reelshort'].includes(providerSlug)) return getSansekaiPlayback(providerSlug as SansekaiPlayableProvider, providerDramaId, providerEpisodeId);
 
   if (providerSlug === 'goodshort') {
     const episodesResolved = providerCatalog.resolveEndpoint(

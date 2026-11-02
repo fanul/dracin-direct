@@ -275,7 +275,7 @@ export async function GET(request: Request): Promise<NextResponse> {
       return NextResponse.json(response);
     }
 
-    const skipEntitlementForNetshortGuest = ['netshort', 'dramabox', 'shortmax'].includes(provider) && userId === 'guest';
+    const skipEntitlementForNetshortGuest = ['netshort', 'dramabox', 'shortmax', 'pinedrama', 'goodshort', 'melolo', 'reelshort'].includes(provider) && userId === 'guest';
 
     if (!skipEntitlementForNetshortGuest) {
       const entitlement = await checkEntitlement(userId, dramaId, provider);

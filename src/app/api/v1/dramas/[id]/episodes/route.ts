@@ -7,6 +7,8 @@ import { logger, generateRequestId } from '@/lib/observability/logger';
 import { validatePathParams, dramaDetailPathSchema } from '@/lib/validation/schemas';
 import type { ApiResponse, EpisodeItem } from '@/lib/types';
 import { fetchDramaBoxEpisodes, fetchShortMaxEpisodes } from '@/lib/providers/dramabox';
+import { fetchFlickReelsEpisodes, fetchFreeReelsEpisodes } from '@/lib/providers/sansekai-reels';
+import { fetchSansekaiEpisodes, type SansekaiPlayableProvider } from '@/lib/providers/sansekai';
 
 export const dynamic = 'force-dynamic';
 
@@ -49,6 +51,20 @@ export async function GET(
       const isDramaBox = normalizedId.startsWith('dramabox:');
       const slug = normalizedId.slice((isDramaBox ? 'dramabox:' : 'shortmax:').length);
       const episodes = await (isDramaBox ? fetchDramaBoxEpisodes(slug) : fetchShortMaxEpisodes(slug));
+      return NextResponse.json({ data: episodes, meta: { requestId, timestamp: new Date().toISOString(), pagination: { page: 1, pageSize: episodes.length, total: episodes.length } }, error: null } satisfies ApiResponse<EpisodeItem[]>);
+    }
+
+    if (normalizedId.startsWith('flickreels:') || normalizedId.startsWith('freereels:')) {
+      const flick = normalizedId.startsWith('flickreels:');
+      const slug = normalizedId.slice((flick ? 'flickreels:' : 'freereels:').length);
+      const episodes = await (flick ? fetchFlickReelsEpisodes(slug) : fetchFreeReelsEpisodes(slug));
+      return NextResponse.json({ data: episodes, meta: { requestId, timestamp: new Date().toISOString(), pagination: { page: 1, pageSize: episodes.length, total: episodes.length } }, error: null } satisfies ApiResponse<EpisodeItem[]>);
+    }
+
+    const directProvider = ['pinedrama', 'goodshort', 'melolo', 'netshort', 'reelshort'].find((provider) => normalizedId.startsWith(`${provider}:`)) as SansekaiPlayableProvider | undefined;
+    const directId = directProvider ? normalizedId.slice(directProvider.length + 1) : '';
+    if (directProvider && /^\d+$/.test(directId)) {
+      const episodes = await fetchSansekaiEpisodes(directProvider, directId);
       return NextResponse.json({ data: episodes, meta: { requestId, timestamp: new Date().toISOString(), pagination: { page: 1, pageSize: episodes.length, total: episodes.length } }, error: null } satisfies ApiResponse<EpisodeItem[]>);
     }
 
