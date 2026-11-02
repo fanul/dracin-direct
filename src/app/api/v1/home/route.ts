@@ -285,8 +285,10 @@ async function buildHomeData(
     if (existing) Object.assign(existing, info);
     else providersInfo.push(info);
   }
-  const activeSlugs = new Set(providerResults.filter((result) => result.dramas.length > 0).map((result) => result.provider));
-  const visibleProviders = providersInfo.filter((provider) => provider.contentCount > 0 || activeSlugs.has(provider.slug));
+  // Only advertise providers whose current catalog IDs pass detail → episodes → playback.
+  const playableProviders = new Set(['dramabox']);
+  const activeSlugs = new Set(providerResults.filter((result) => result.dramas.length > 0 && playableProviders.has(result.provider)).map((result) => result.provider));
+  const visibleProviders = providersInfo.filter((provider) => playableProviders.has(provider.slug) && (provider.contentCount > 0 || activeSlugs.has(provider.slug)));
 
   // Ensure every active provider appears on homepage sections
   const mergedSectionMap = new Map(
