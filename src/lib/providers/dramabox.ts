@@ -1,0 +1,64 @@
+import type { DramaCard, DramaDetail, EpisodeItem, PlaybackResponse } from '@/lib/types';
+
+const baseUrl = () => (process.env.DRAMA_API_BASE_URL || 'https://api-all-drama-new.vercel.app').replace(/\/$/, '');
+type DirectProvider = 'dramabox' | 'shortmax';
+type Drama = { title?: string; slug?: string; synopsis?: string; cover_image_url?: string; details?: { genres?: string[] }; chapter_count?: number; is_vip_only?: boolean; updatedAt?: string };
+type Episode = { _id?: string; episode_number?: number; title?: string; videos?: Array<{ quality?: number | string; url?: string }>; is_vip?: boolean };
+
+async function get<T>(path: string): Promise<T> {
+  const response = await fetch(`${baseUrl()}${path}`, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`DIRECT_DRAMA_UPSTREAM_${response.status}`);
+  return response.json() as Promise<T>;
+}
+
+function mapDrama(item: Drama, provider: DirectProvider): DramaCard | null {
+  if (!item.slug || !item.title) return null;
+  return { id: `${provider}:${item.slug}`, providerSlug: provider, providerDramaId: item.slug, title: item.title, coverUrl: item.cover_image_url || '', episodeCount: item.chapter_count || 0, tags: item.details?.genres || [], isPremium: item.is_vip_only === true, providerName: provider === 'dramabox' ? 'DramaBox' : 'ShortMax', vipLevel: 'FREE' };
+}
+
+async function cards(provider: DirectProvider, path: string): Promise<DramaCard[]> {
+  const payload = await get<{ data?: Drama[] }>(path);
+  return (payload.data || []).map((item) => mapDrama(item, provider)).filter((item): item is DramaCard => item !== null);
+}
+
+async function detail(provider: DirectProvider, slug: string): Promise<DramaDetail | null> {
+  const payload = await get<{ data?: Drama }>(`/api/${provider}/detail/${encodeURIComponent(slug)}`);
+  const card = payload.data ? mapDrama(payload.data, provider) : null;
+  if (!card || !payload.data) return null;
+  return { ...card, synopsis: payload.data.synopsis || '', genres: payload.data.details?.genres || [], language: 'id', lastUpdated: payload.data.updatedAt || new Date(0).toISOString() };
+}
+
+async function rawEpisodes(provider: DirectProvider, slug: string): Promise<Episode[]> {
+  return (await get<{ data?: Episode[] }>(`/api/${provider}/allepisodes/${encodeURIComponent(slug)}`)).data || [];
+}
+
+function mapEpisodes(items: Episode[]): EpisodeItem[] {
+  return items.flatMap((episode) => {
+    if (!Number.isFinite(episode.episode_number)) return [];
+    const episodeNo = episode.episode_number as number;
+    return [{ episodeId: episode._id || String(episodeNo), providerEpisodeId: String(episodeNo), episodeNo, title: episode.title || `Episode ${episodeNo}`, durationMs: 0, isLocked: false }];
+  });
+}
+
+async function playback(provider: DirectProvider, slug: string, token: string): Promise<PlaybackResponse> {
+  const items = await rawEpisodes(provider, slug);
+  const episodeNo = Number.parseInt(token, 10);
+  const episode = items.find((item) => item.episode_number === episodeNo || item._id === token);
+  const video = episode?.videos?.filter((item): item is { quality?: number | string; url: string } => !!item.url).sort((a, b) => Number(b.quality) - Number(a.quality))[0];
+  if (!video) throw new Error('PLAYBACK_ENDPOINT_NOT_FOUND');
+  return { streamUrl: video.url, mimeType: 'video/mp4', expiresAt: new Date(Date.now() + 120_000).toISOString() };
+}
+
+export const fetchDramaBoxCatalog = (page: number) => cards('dramabox', `/api/dramabox/terbaru?page=${page}`);
+export const fetchShortMaxCatalog = (page: number) => cards('shortmax', `/api/shortmax/homepage?page=${page}`);
+export const searchDramaBox = (query: string) => cards('dramabox', `/api/dramabox/search?q=${encodeURIComponent(query)}`);
+export const searchShortMax = (query: string) => cards('shortmax', `/api/shortmax/search?q=${encodeURIComponent(query)}`);
+export const fetchDramaBoxDetail = (slug: string) => detail('dramabox', slug);
+export const fetchShortMaxDetail = (slug: string) => detail('shortmax', slug);
+export const fetchDramaBoxEpisodes = async (slug: string) => mapEpisodes(await rawEpisodes('dramabox', slug));
+export const fetchShortMaxEpisodes = async (slug: string) => mapEpisodes(await rawEpisodes('shortmax', slug));
+export const getDramaBoxPlayback = (slug: string, token: string) => playback('dramabox', slug, token);
+export const getShortMaxPlayback = (slug: string, token: string) => playback('shortmax', slug, token);
+
+export const dramaBoxProvider = { id: 'dramabox', slug: 'dramabox', name: 'DramaBox', rating: 0, dramaCount: 0, episodeCount: 0, status: 'active' as const, description: 'DramaBox', logoUrl: undefined, websiteUrl: undefined };
+export const shortMaxProvider = { ...dramaBoxProvider, id: 'shortmax', slug: 'shortmax', name: 'ShortMax', description: 'ShortMax' };

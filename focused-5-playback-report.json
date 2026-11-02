@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "cashdrama",
+    "home": "PASS",
+    "episodes": "PASS",
+    "playback": "PASS",
+    "streamFound": true,
+    "streamProbe": "ERR",
+    "sample": {
+      "home": "/api/v1/home",
+      "episodes": "/api/v1/drama/:vid/episodes",
+      "playback": "/api/v1/play/:vid/:ep"
+    }
+  },
+  {
+    "slug": "goodshort",
+    "home": "PASS",
+    "episodes": "PASS",
+    "playback": "PASS",
+    "streamFound": true,
+    "streamProbe": 206,
+    "sample": {
+      "home": "/api/v1/home",
+      "episodes": "/api/v1/chapters/:bookId",
+      "playback": "/api/v1/play/:bookId/:chapterId",
+      "streamCt": "application/x-mpegURL"
+    }
+  },
+  {
+    "slug": "flextv",
+    "home": "PASS",
+    "episodes": "PASS",
+    "playback": "PASS",
+    "streamFound": true,
+    "streamProbe": 206,
+    "sample": {
+      "home": "/api/v1/tabs",
+      "episodes": "/api/v1/series/:id/episodes",
+      "playback": "/api/v1/play/:series_id/:section_id",
+      "streamCt": "video/mp4"
+    }
+  },
+  {
+    "slug": "shortmax",
+    "home": "PASS",
+    "episodes": "SKIP",
+    "playback": "PASS",
+    "streamFound": true,
+    "streamProbe": 200,
+    "sample": {
+      "home": "/api/v1/home",
+      "playback": "/api/v1/play/:code",
+      "streamCt": "application/x-mpegURL"
+    }
+  },
+  {
+    "slug": "reelshort",
+    "home": "PASS",
+    "episodes": "PASS",
+    "playback": "PASS",
+    "streamFound": true,
+    "streamProbe": 206,
+    "sample": {
+      "home": "/api/v1/foryou",
+      "episodes": "/api/v1/book/:id/chapters",
+      "playback": "/api/v1/book/:id/chapter/:chapterId/video",
+      "streamCt": "application/x-mpegurl"
+    }
+  }
+]

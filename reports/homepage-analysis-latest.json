@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-02-26T18:54:51.383Z",
+  "startedAt": "2026-02-26T18:54:51.352Z",
+  "finishedAt": "2026-02-26T18:54:51.383Z",
+  "latencyMs": 31,
+  "source": {
+    "homeUrl": "http://localhost:3000/api/v1/home",
+    "status": 0,
+    "error": "fetch failed"
+  },
+  "sections": {
+    "providerSectionCount": 0,
+    "nonEmptyProviderSectionCount": 0,
+    "featuredCount": 0,
+    "trendingCount": 0,
+    "forYouCount": 0
+  },
+  "providerSectionMetrics": {
+    "totalCards": 0,
+    "uniqueCards": 0,
+    "duplicateRatio": 0,
+    "missingCoverRatio": 0,
+    "missingTitleRatio": 0
+  },
+  "homepageWideMetrics": {
+    "totalCards": 0,
+    "uniqueCards": 0,
+    "duplicateRatio": 0,
+    "missingCoverRatio": 0,
+    "missingTitleRatio": 0
+  }
+}

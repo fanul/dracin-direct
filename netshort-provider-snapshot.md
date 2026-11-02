@@ -1,0 +1,221 @@
+- generic [active] [ref=e1]:
+  - link "Lompat ke konten utama" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - main [ref=e4]:
+      - main [ref=e5]:
+        - generic "Header halaman" [ref=e6]:
+          - generic [ref=e7]:
+            - button "Kembali" [ref=e9]:
+              - img [ref=e10]
+            - heading "NetShort" [level=1] [ref=e79]
+            - button "Menu" [ref=e14]:
+              - img [ref=e15]
+        - generic [ref=e17]:
+          - generic [ref=e80]:
+            - generic [ref=e82]: "N"
+            - heading "NetShort" [level=1] [ref=e83]
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - img [ref=e86]
+                - text: "0.0"
+              - generic [ref=e88]: •
+              - generic [ref=e89]: 10 Drama
+              - generic [ref=e90]: •
+              - generic [ref=e91]: 86 Episodes
+            - generic [ref=e92]:
+              - button "Website" [ref=e93]
+              - button "Share" [ref=e94]:
+                - img [ref=e95]
+                - text: Share
+              - button "Follow" [ref=e97]
+          - generic [ref=e23]:
+            - link "Lika-Liku Sang Raja Masak netshort Lika-Liku Sang Raja Masak 0 Eps" [ref=e98] [cursor=pointer]:
+              - /url: /dramas/82fb9dbc-9a0c-45bf-9c54-1e1913b3a558
+              - generic [ref=e99]:
+                - img "Lika-Liku Sang Raja Masak" [ref=e100]
+                - generic [ref=e102]: netshort
+              - heading "Lika-Liku Sang Raja Masak" [level=3] [ref=e103]
+              - paragraph [ref=e104]: 0 Eps
+            - link "Si Lemah Penyelamat Dunia netshort Si Lemah Penyelamat Dunia 0 Eps" [ref=e105] [cursor=pointer]:
+              - /url: /dramas/6b0336c0-b099-4a4e-a903-ee920d692d15
+              - generic [ref=e106]:
+                - img "Si Lemah Penyelamat Dunia" [ref=e107]
+                - generic [ref=e109]: netshort
+              - heading "Si Lemah Penyelamat Dunia" [level=3] [ref=e110]
+              - paragraph [ref=e111]: 0 Eps
+            - link "Legenda yang Tersembunyi netshort Legenda yang Tersembunyi 0 Eps" [ref=e112] [cursor=pointer]:
+              - /url: /dramas/111fbb63-4294-40d6-9f43-eddcf6b5a6ac
+              - generic [ref=e113]:
+                - img "Legenda yang Tersembunyi" [ref=e114]
+                - generic [ref=e116]: netshort
+              - heading "Legenda yang Tersembunyi" [level=3] [ref=e117]
+              - paragraph [ref=e118]: 0 Eps
+            - link "Laporan Pembawa Cinta netshort Laporan Pembawa Cinta 0 Eps" [ref=e119] [cursor=pointer]:
+              - /url: /dramas/0f196d9e-2a78-40a6-8d92-ba68bdae4924
+              - generic [ref=e120]:
+                - img "Laporan Pembawa Cinta" [ref=e121]
+                - generic [ref=e123]: netshort
+              - heading "Laporan Pembawa Cinta" [level=3] [ref=e124]
+              - paragraph [ref=e125]: 0 Eps
+            - link "Lelaki Biasa di Zaman Luar Biasa netshort Lelaki Biasa di Zaman Luar Biasa 0 Eps" [ref=e126] [cursor=pointer]:
+              - /url: /dramas/edc1acd9-b1d9-42ba-bdd6-9b7727d68b6e
+              - generic [ref=e127]:
+                - img "Lelaki Biasa di Zaman Luar Biasa" [ref=e128]
+                - generic [ref=e130]: netshort
+              - heading "Lelaki Biasa di Zaman Luar Biasa" [level=3] [ref=e131]
+              - paragraph [ref=e132]: 0 Eps
+            - link "Bayangan Pedang dan Dosa Lama netshort Bayangan Pedang dan Dosa Lama 0 Eps" [ref=e133] [cursor=pointer]:
+              - /url: /dramas/6de00fcc-92b6-4760-8aed-55bb3f95818c
+              - generic [ref=e134]:
+                - img "Bayangan Pedang dan Dosa Lama" [ref=e135]
+                - generic [ref=e137]: netshort
+              - heading "Bayangan Pedang dan Dosa Lama" [level=3] [ref=e138]
+              - paragraph [ref=e139]: 0 Eps
+            - link "(Sulih suara) Tebus Langit netshort (Sulih suara) Tebus Langit 0 Eps" [ref=e140] [cursor=pointer]:
+              - /url: /dramas/41e39354-3c61-40af-80f3-b87759b3b8d2
+              - generic [ref=e141]:
+                - img "(Sulih suara) Tebus Langit" [ref=e142]
+                - generic [ref=e144]: netshort
+              - heading "(Sulih suara) Tebus Langit" [level=3] [ref=e145]
+              - paragraph [ref=e146]: 0 Eps
+            - link "(Sulih suara)Lelaki Biasa di Zaman Luar Biasa netshort (Sulih suara)Lelaki Biasa di Zaman Luar Biasa 0 Eps" [ref=e147] [cursor=pointer]:
+              - /url: /dramas/6edde783-e0aa-4ede-8a0d-147d6ae86f84
+              - generic [ref=e148]:
+                - img "(Sulih suara)Lelaki Biasa di Zaman Luar Biasa" [ref=e149]
+                - generic [ref=e151]: netshort
+              - heading "(Sulih suara)Lelaki Biasa di Zaman Luar Biasa" [level=3] [ref=e152]
+              - paragraph [ref=e153]: 0 Eps
+            - link "(Sulih suara)Lika-Liku Sang Raja Masak netshort (Sulih suara)Lika-Liku Sang Raja Masak 0 Eps" [ref=e154] [cursor=pointer]:
+              - /url: /dramas/056b7a93-e5c9-44a1-bb1a-692302a13cbd
+              - generic [ref=e155]:
+                - img "(Sulih suara)Lika-Liku Sang Raja Masak" [ref=e156]
+                - generic [ref=e158]: netshort
+              - heading "(Sulih suara)Lika-Liku Sang Raja Masak" [level=3] [ref=e159]
+              - paragraph [ref=e160]: 0 Eps
+            - link "Tebus Langit netshort Tebus Langit 0 Eps" [ref=e161] [cursor=pointer]:
+              - /url: /dramas/e419a540-6820-404e-9a82-3602f50c3b01
+              - generic [ref=e162]:
+                - img "Tebus Langit" [ref=e163]
+                - generic [ref=e165]: netshort
+              - heading "Tebus Langit" [level=3] [ref=e166]
+              - paragraph [ref=e167]: 0 Eps
+            - link "(Sulih suara) Primadona dan Pengawalnya NetShort (Sulih suara) Primadona dan Pengawalnya 67 Eps" [ref=e168] [cursor=pointer]:
+              - /url: /dramas/netshort:2000768888915566594
+              - generic [ref=e169]:
+                - img "(Sulih suara) Primadona dan Pengawalnya" [ref=e170]
+                - generic [ref=e172]: NetShort
+              - heading "(Sulih suara) Primadona dan Pengawalnya" [level=3] [ref=e173]
+              - paragraph [ref=e174]: 67 Eps
+            - link "Topeng Pemboros 2 NetShort Topeng Pemboros 2 85 Eps" [ref=e175] [cursor=pointer]:
+              - /url: /dramas/netshort:2022149023183405058
+              - generic [ref=e176]:
+                - img "Topeng Pemboros 2" [ref=e177]
+                - generic [ref=e179]: NetShort
+              - heading "Topeng Pemboros 2" [level=3] [ref=e180]
+              - paragraph [ref=e181]: 85 Eps
+            - link "(Sulih suara) Makin Boros, Rezeki Malah Lancar NetShort (Sulih suara) Makin Boros, Rezeki Malah Lancar 77 Eps" [ref=e182] [cursor=pointer]:
+              - /url: /dramas/netshort:2016349570022711297
+              - generic [ref=e183]:
+                - img "(Sulih suara) Makin Boros, Rezeki Malah Lancar" [ref=e184]
+                - generic [ref=e186]: NetShort
+              - heading "(Sulih suara) Makin Boros, Rezeki Malah Lancar" [level=3] [ref=e187]
+              - paragraph [ref=e188]: 77 Eps
+            - link "Juru Makhluk Terhebat NetShort Juru Makhluk Terhebat 70 Eps" [ref=e189] [cursor=pointer]:
+              - /url: /dramas/netshort:2022186531669671937
+              - generic [ref=e190]:
+                - img "Juru Makhluk Terhebat" [ref=e191]
+                - generic [ref=e193]: NetShort
+              - heading "Juru Makhluk Terhebat" [level=3] [ref=e194]
+              - paragraph [ref=e195]: 70 Eps
+            - link "(Sulih suara) Dinikahi Setelah Putus NetShort (Sulih suara) Dinikahi Setelah Putus 78 Eps" [ref=e196] [cursor=pointer]:
+              - /url: /dramas/netshort:1999696993278885889
+              - generic [ref=e197]:
+                - img "(Sulih suara) Dinikahi Setelah Putus" [ref=e198]
+                - generic [ref=e200]: NetShort
+              - heading "(Sulih suara) Dinikahi Setelah Putus" [level=3] [ref=e201]
+              - paragraph [ref=e202]: 78 Eps
+            - link "(Sulih suara) Cintaku Berbatas Waktu NetShort (Sulih suara) Cintaku Berbatas Waktu 56 Eps" [ref=e203] [cursor=pointer]:
+              - /url: /dramas/netshort:2016403719291768834
+              - generic [ref=e204]:
+                - img "(Sulih suara) Cintaku Berbatas Waktu" [ref=e205]
+                - generic [ref=e207]: NetShort
+              - heading "(Sulih suara) Cintaku Berbatas Waktu" [level=3] [ref=e208]
+              - paragraph [ref=e209]: 56 Eps
+            - link "(Sulih suara) Kebangkitan Raja Balap NetShort (Sulih suara) Kebangkitan Raja Balap 60 Eps" [ref=e210] [cursor=pointer]:
+              - /url: /dramas/netshort:2001954146244636674
+              - generic [ref=e211]:
+                - img "(Sulih suara) Kebangkitan Raja Balap" [ref=e212]
+                - generic [ref=e214]: NetShort
+              - heading "(Sulih suara) Kebangkitan Raja Balap" [level=3] [ref=e215]
+              - paragraph [ref=e216]: 60 Eps
+            - link "(Sulih suara) Jagal Tak Terkalahkan NetShort (Sulih suara) Jagal Tak Terkalahkan 62 Eps" [ref=e217] [cursor=pointer]:
+              - /url: /dramas/netshort:1997949622037180417
+              - generic [ref=e218]:
+                - img "(Sulih suara) Jagal Tak Terkalahkan" [ref=e219]
+                - generic [ref=e221]: NetShort
+              - heading "(Sulih suara) Jagal Tak Terkalahkan" [level=3] [ref=e222]
+              - paragraph [ref=e223]: 62 Eps
+            - link "Dunia Game Ini, Aku yang Berkuasa NetShort Dunia Game Ini, Aku yang Berkuasa 75 Eps" [ref=e224] [cursor=pointer]:
+              - /url: /dramas/netshort:2021762099104944130
+              - generic [ref=e225]:
+                - img "Dunia Game Ini, Aku yang Berkuasa" [ref=e226]
+                - generic [ref=e228]: NetShort
+              - heading "Dunia Game Ini, Aku yang Berkuasa" [level=3] [ref=e229]
+              - paragraph [ref=e230]: 75 Eps
+            - link "Penebusan Sang Tabib NetShort Penebusan Sang Tabib 56 Eps" [ref=e231] [cursor=pointer]:
+              - /url: /dramas/netshort:2026117563259289602
+              - generic [ref=e232]:
+                - img "Penebusan Sang Tabib" [ref=e233]
+                - generic [ref=e235]: NetShort
+              - heading "Penebusan Sang Tabib" [level=3] [ref=e236]
+              - paragraph [ref=e237]: 56 Eps
+            - link "(Sulih suara)Pindah Alam Jadi Permaisuri NetShort (Sulih suara)Pindah Alam Jadi Permaisuri 88 Eps" [ref=e238] [cursor=pointer]:
+              - /url: /dramas/netshort:1963538966899777538
+              - generic [ref=e239]:
+                - img "(Sulih suara)Pindah Alam Jadi Permaisuri" [ref=e240]
+                - generic [ref=e242]: NetShort
+              - heading "(Sulih suara)Pindah Alam Jadi Permaisuri" [level=3] [ref=e243]
+              - paragraph [ref=e244]: 88 Eps
+            - link "Dunia Hantu di Mataku Berbeda NetShort Dunia Hantu di Mataku Berbeda 60 Eps" [ref=e245] [cursor=pointer]:
+              - /url: /dramas/netshort:2020733703653093377
+              - generic [ref=e246]:
+                - img "Dunia Hantu di Mataku Berbeda" [ref=e247]
+                - generic [ref=e249]: NetShort
+              - heading "Dunia Hantu di Mataku Berbeda" [level=3] [ref=e250]
+              - paragraph [ref=e251]: 60 Eps
+            - link "(Sulih suara) Sang Pewaris Jawara Pedang Pertama NetShort (Sulih suara) Sang Pewaris Jawara Pedang Pertama 68 Eps" [ref=e252] [cursor=pointer]:
+              - /url: /dramas/netshort:1955213795967209473
+              - generic [ref=e253]:
+                - img "(Sulih suara) Sang Pewaris Jawara Pedang Pertama" [ref=e254]
+                - generic [ref=e256]: NetShort
+              - heading "(Sulih suara) Sang Pewaris Jawara Pedang Pertama" [level=3] [ref=e257]
+              - paragraph [ref=e258]: 68 Eps
+            - link "(Sulih suara) Aku Hukum Selingkuhan Putriku NetShort (Sulih suara) Aku Hukum Selingkuhan Putriku 60 Eps" [ref=e259] [cursor=pointer]:
+              - /url: /dramas/netshort:2013871113896402945
+              - generic [ref=e260]:
+                - img "(Sulih suara) Aku Hukum Selingkuhan Putriku" [ref=e261]
+                - generic [ref=e263]: NetShort
+              - heading "(Sulih suara) Aku Hukum Selingkuhan Putriku" [level=3] [ref=e264]
+              - paragraph [ref=e265]: 60 Eps
+    - navigation "Navigasi utama" [ref=e56]:
+      - generic [ref=e58]:
+        - link "Beranda" [ref=e59] [cursor=pointer]:
+          - /url: /
+          - img [ref=e60]
+          - generic [ref=e63]: Beranda
+        - link "Cari" [ref=e64] [cursor=pointer]:
+          - /url: /search
+          - img [ref=e65]
+          - generic [ref=e68]: Cari
+        - link "Riwayat" [ref=e69] [cursor=pointer]:
+          - /url: /history
+          - img [ref=e70]
+          - generic [ref=e73]: Riwayat
+        - link "Profil" [ref=e74] [cursor=pointer]:
+          - /url: /profile
+          - img [ref=e75]
+          - generic [ref=e78]: Profil
+  - button "Open Next.js Dev Tools" [ref=e303] [cursor=pointer]:
+    - img [ref=e304]
+  - alert [ref=e307]

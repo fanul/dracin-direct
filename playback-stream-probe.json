@@ -1,0 +1,47 @@
+{
+  "summary": {
+    "totalChecked": 9,
+    "streamPass": 0,
+    "streamMaybe": 0,
+    "streamFail": 0,
+    "noStream": 9
+  },
+  "rows": [
+    {
+      "slug": "stardusttv",
+      "playback": "pass_no_stream"
+    },
+    {
+      "slug": "cashdrama",
+      "playback": "pass_no_stream"
+    },
+    {
+      "slug": "flextv",
+      "playback": "pass_no_stream"
+    },
+    {
+      "slug": "bilitv",
+      "playback": "pass_no_stream"
+    },
+    {
+      "slug": "dramabite",
+      "playback": "pass_no_stream"
+    },
+    {
+      "slug": "dramapops",
+      "playback": "pass_no_stream"
+    },
+    {
+      "slug": "netshort",
+      "playback": "pass_no_stream"
+    },
+    {
+      "slug": "shortmax",
+      "playback": "pass_no_stream"
+    },
+    {
+      "slug": "reelshort",
+      "playback": "pass_no_stream"
+    }
+  ]
+}

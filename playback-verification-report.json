@@ -1,0 +1,568 @@
+{
+  "summary": {
+    "total": 41,
+    "allChecksPass": 1,
+    "playbackPass": 19,
+    "streamPass": 1,
+    "failed": 40
+  },
+  "results": [
+    {
+      "slug": "hishort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/home",
+        "detail": "/api/v1/drama/:id",
+        "playback": "/api/v1/episode/:slug"
+      }
+    },
+    {
+      "slug": "microdrama",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/dramas",
+        "detail": "/api/v1/dramas/:id"
+      }
+    },
+    {
+      "slug": "meloshort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/dramas/discover",
+        "detail": "/api/v1/dramas/:id/episodes",
+        "episodes": "/api/v1/dramas/:id/episodes"
+      }
+    },
+    {
+      "slug": "stardusttv",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/homepage",
+        "detail": "/api/v1/video/:slug/:id",
+        "playback": "/api/v1/video/:slug/:id"
+      }
+    },
+    {
+      "slug": "snackshort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/tabs",
+        "detail": "/api/v1/book/:bookId",
+        "episodes": "/api/v1/book/:bookId/chapters",
+        "playback": "/api/v1/book/:bookId/episode/:chapterId"
+      }
+    },
+    {
+      "slug": "velolo",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "FAIL",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/new",
+        "detail": "/detail/:id",
+        "playback": "/stream"
+      }
+    },
+    {
+      "slug": "freereels",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "FAIL",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/new",
+        "detail": "/api/v1/dramas/:id",
+        "episodes": "/api/v1/dramas/:id/episodes",
+        "playback": "/api/v1/dramas/:id/play/:ep"
+      }
+    },
+    {
+      "slug": "flickreels",
+      "home": "PASS",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {
+        "home": "/api/v1/for-you"
+      }
+    },
+    {
+      "slug": "dotdrama",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/dramas/:id",
+        "detail": "/api/v1/dramas/:id"
+      }
+    },
+    {
+      "slug": "starshort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/dramas/new",
+        "detail": "/api/v1/dramas/:dramaId",
+        "episodes": "/api/v1/dramas/:dramaId/episodes"
+      }
+    },
+    {
+      "slug": "rapidtv",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/dramas",
+        "detail": "/api/v1/dramas/:id",
+        "episodes": "/api/v1/dramas/:id/episodes"
+      }
+    },
+    {
+      "slug": "minutedrama",
+      "home": "PASS",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {
+        "home": "/api/v1/popular"
+      }
+    },
+    {
+      "slug": "cashdrama",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/home",
+        "detail": "/api/v1/drama/:vid",
+        "episodes": "/api/v1/drama/:vid/episodes",
+        "playback": "/api/v1/play/:vid/:ep"
+      }
+    },
+    {
+      "slug": "shotshort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/popular",
+        "detail": "/api/book/:id",
+        "episodes": "/api/book/:id/episodes"
+      }
+    },
+    {
+      "slug": "sodareels",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/home",
+        "detail": "/api/v1/drama/:id",
+        "episodes": "/api/v1/episodes"
+      }
+    },
+    {
+      "slug": "radreels",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/foryou",
+        "detail": "/api/v1/drama/:keyword",
+        "episodes": "/api/v1/episodes/:fakeId",
+        "playback": "/api/v1/video/:videoFakeId/:episodicDramaId"
+      }
+    },
+    {
+      "slug": "dramanow",
+      "home": "PASS",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {
+        "home": "/api/v1/languages"
+      }
+    },
+    {
+      "slug": "shorten",
+      "home": "PASS",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {
+        "home": "/api/v1/explore"
+      }
+    },
+    {
+      "slug": "shortsky",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/recommend",
+        "detail": "/api/drama/:id",
+        "playback": "/api/drama/:id/episode/:ep"
+      }
+    },
+    {
+      "slug": "flickshort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/recommend",
+        "detail": "/api/v1/drama/:id",
+        "playback": "/api/v1/drama/:id/episode/:ep"
+      }
+    },
+    {
+      "slug": "dramadash",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "PASS",
+      "reason": "all_checks_passed",
+      "sample": {
+        "home": "/api/v1/tabs/:id",
+        "detail": "/api/v1/drama/:id",
+        "playback": "/api/v1/episode/:dramaId/:eps",
+        "streamStatus": 200
+      }
+    },
+    {
+      "slug": "dramawave",
+      "home": "FAIL",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "detail": "/api/v1/dramas/:id",
+        "playback": "/api/v1/dramas/:id/play/:ep"
+      }
+    },
+    {
+      "slug": "dramarush",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/tabs/:id",
+        "detail": "/api/v1/drama/:id",
+        "playback": "/api/v1/play/:id"
+      }
+    },
+    {
+      "slug": "reelife",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/foryou",
+        "detail": "/api/v1/dramas/:id",
+        "episodes": "/api/v1/dramas/:id/chapters"
+      }
+    },
+    {
+      "slug": "vigloo",
+      "home": "PASS",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {
+        "home": "/api/v1/browse"
+      }
+    },
+    {
+      "slug": "dreamshort",
+      "home": "PASS",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {
+        "home": "/discover/sections"
+      }
+    },
+    {
+      "slug": "shortbox",
+      "home": "PASS",
+      "detail": "FAIL",
+      "episodes": "PASS",
+      "playback": "FAIL",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/languages",
+        "detail": "/api/detail/:id",
+        "episodes": "/api/episodes/:id",
+        "playback": "/api/stream/:id/:ep"
+      }
+    },
+    {
+      "slug": "mydrama",
+      "home": "FAIL",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {}
+    },
+    {
+      "slug": "goodshort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/home",
+        "detail": "/api/v1/book/:id",
+        "episodes": "/api/v1/chapters/:bookId",
+        "playback": "/api/v1/play/:bookId/:chapterId"
+      }
+    },
+    {
+      "slug": "idrama",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/popular",
+        "detail": "/api/v1/drama/:id"
+      }
+    },
+    {
+      "slug": "flextv",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/tabs/:name",
+        "detail": "/api/v1/series/:id",
+        "episodes": "/api/v1/series/:id/episodes",
+        "playback": "/api/v1/play/:series_id/:section_id"
+      }
+    },
+    {
+      "slug": "bilitv",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/home",
+        "detail": "/api/v1/drama/:id",
+        "playback": "/api/v1/drama/:id/episode/:ep"
+      }
+    },
+    {
+      "slug": "dramabite",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/foryou",
+        "detail": "/api/v1/drama/:id",
+        "playback": "/api/v1/drama/:id/episode/:ep"
+      }
+    },
+    {
+      "slug": "dramanova",
+      "home": "PASS",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {
+        "home": "/api/v1/recommend"
+      }
+    },
+    {
+      "slug": "dramapops",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/dramas/popular",
+        "detail": "/api/v1/drama/:id",
+        "playback": "/api/v1/drama/:id/episode/:ep/video"
+      }
+    },
+    {
+      "slug": "fundrama",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/drama/:id/episodes",
+        "detail": "/api/v1/drama/:id",
+        "episodes": "/api/v1/drama/:id/episodes",
+        "playback": "/api/v1/drama/:id/episode/:ep"
+      }
+    },
+    {
+      "slug": "kalostv",
+      "home": "FAIL",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {}
+    },
+    {
+      "slug": "netshort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/feed/:page",
+        "detail": "/api/v1/detail/:id",
+        "episodes": "/api/v1/episodes/:id",
+        "playback": "/api/v1/episode/:id/:episodeNo"
+      }
+    },
+    {
+      "slug": "melolo",
+      "home": "PASS",
+      "detail": "SKIP",
+      "episodes": "SKIP",
+      "playback": "SKIP",
+      "stream": "SKIP",
+      "reason": "cannot_extract_drama_id",
+      "sample": {
+        "home": "/api/v1/languages"
+      }
+    },
+    {
+      "slug": "shortmax",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "SKIP",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/home",
+        "detail": "/api/v1/detail/:code",
+        "playback": "/api/v1/play/:code"
+      }
+    },
+    {
+      "slug": "reelshort",
+      "home": "PASS",
+      "detail": "PASS",
+      "episodes": "PASS",
+      "playback": "PASS",
+      "stream": "FAIL",
+      "reason": "one_or_more_checks_failed",
+      "sample": {
+        "home": "/api/v1/foryou",
+        "detail": "/api/v1/book/:id",
+        "episodes": "/api/v1/book/:id/chapters",
+        "playback": "/api/v1/book/:id/chapter/:chapterId/video"
+      }
+    }
+  ]
+}

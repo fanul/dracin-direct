@@ -1,0 +1,2474 @@
+{
+  "generatedAt": "2026-02-24",
+  "host": "https://captain.sapimu.au",
+  "authHeader": "Authorization: Bearer <TOKEN>",
+  "providers": [
+    {
+      "vip": "VIP1",
+      "provider": "HiShort",
+      "slug": "hishort",
+      "baseUrl": "https://captain.sapimu.au/hishort",
+      "endpointCount": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/hishort/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/:q",
+          "pathParams": [
+            "q"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/hishort/api/v1/search/{Q}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/hishort/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/episode/:slug",
+          "pathParams": [
+            "slug"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/hishort/api/v1/episode/{SLUG}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP1",
+      "provider": "MicroDrama",
+      "slug": "microdrama",
+      "baseUrl": "https://captain.sapimu.au/microdrama",
+      "endpointCount": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/microdrama/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/microdrama/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/microdrama/api/v1/dramas/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/microdrama/api/v1/dramas/{ID}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP1",
+      "provider": "MeloShort",
+      "slug": "meloshort",
+      "baseUrl": "https://captain.sapimu.au/meloshort",
+      "endpointCount": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/meloshort/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/discover",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/meloshort/api/v1/dramas/discover"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/top",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/meloshort/api/v1/dramas/top"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/meloshort/api/v1/dramas/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id/episodes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/meloshort/api/v1/dramas/{ID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id/episodes/:chapter",
+          "pathParams": [
+            "id",
+            "chapter"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/meloshort/api/v1/dramas/{ID}/episodes/{CHAPTER}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP1",
+      "provider": "StardustTV",
+      "slug": "stardusttv",
+      "baseUrl": "https://captain.sapimu.au/stardusttv",
+      "endpointCount": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/stardusttv/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/homepage",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/stardusttv/api/v1/homepage"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/stardusttv/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video/:slug/:id",
+          "pathParams": [
+            "slug",
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/stardusttv/api/v1/video/{SLUG}/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video/:slug/:id/episode/:episode",
+          "pathParams": [
+            "slug",
+            "id",
+            "episode"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/stardusttv/api/v1/video/{SLUG}/{ID}/episode/{EPISODE}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP1",
+      "provider": "SnackShort",
+      "slug": "snackshort",
+      "baseUrl": "https://captain.sapimu.au/snackshort",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/snackshort/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tabs",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/snackshort/api/v1/tabs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/browsing",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/snackshort/api/v1/browsing"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/snackshort/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/book/:bookId",
+          "pathParams": [
+            "bookId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/snackshort/api/v1/book/{BOOKID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/book/:bookId/chapters",
+          "pathParams": [
+            "bookId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/snackshort/api/v1/book/{BOOKID}/chapters"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/book/:bookId/episode/:chapterId",
+          "pathParams": [
+            "bookId",
+            "chapterId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/snackshort/api/v1/book/{BOOKID}/episode/{CHAPTERID}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP1",
+      "provider": "Velolo",
+      "slug": "velolo",
+      "baseUrl": "https://captain.sapimu.au/velolo",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/velolo/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/hot",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/velolo/hot"
+        },
+        {
+          "method": "GET",
+          "path": "/new",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/velolo/new"
+        },
+        {
+          "method": "GET",
+          "path": "/labels",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/velolo/labels"
+        },
+        {
+          "method": "GET",
+          "path": "/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/velolo/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/detail/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/velolo/detail/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/stream",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/velolo/stream"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP2",
+      "provider": "FreeReels",
+      "slug": "freereels",
+      "baseUrl": "https://captain.sapimu.au/freereels",
+      "endpointCount": 13,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/foryou",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/foryou"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/popular",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/popular"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/new",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/new"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/female",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/female"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/male",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/male"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/anime",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/anime"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dubbing",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/dubbing"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/suggest",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/search/suggest"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/dramas/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id/episodes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/dramas/{ID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id/play/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/dramas/{ID}/play/{EP}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/coming-soon",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/freereels/api/v1/coming-soon"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP2",
+      "provider": "FlickReels",
+      "slug": "flickreels",
+      "baseUrl": "https://captain.sapimu.au/flickreels",
+      "endpointCount": 8,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flickreels/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/hot-rank",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flickreels/api/v1/hot-rank"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/for-you",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flickreels/api/v1/for-you"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/navigation",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flickreels/api/v1/navigation"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/category/:navId",
+          "pathParams": [
+            "navId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flickreels/api/v1/category/{NAVID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/play/:playletId",
+          "pathParams": [
+            "playletId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flickreels/api/v1/play/{PLAYLETID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/chapters/:playletId",
+          "pathParams": [
+            "playletId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flickreels/api/v1/chapters/{PLAYLETID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/stream/:playletId/:chapterNum",
+          "pathParams": [
+            "playletId",
+            "chapterNum"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flickreels/api/v1/stream/{PLAYLETID}/{CHAPTERNUM}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP2",
+      "provider": "DotDrama",
+      "slug": "dotdrama",
+      "baseUrl": "https://captain.sapimu.au/dotdrama",
+      "endpointCount": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dotdrama/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/collections",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dotdrama/api/v1/collections"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/categories",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dotdrama/api/v1/categories"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dotdrama/api/v1/dramas/{ID}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP3",
+      "provider": "StarShort",
+      "slug": "starshort",
+      "baseUrl": "https://captain.sapimu.au/starshort",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/starshort/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/starshort/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/new",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/starshort/api/v1/dramas/new"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/starshort/api/v1/dramas/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:dramaId",
+          "pathParams": [
+            "dramaId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/starshort/api/v1/dramas/{DRAMAID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:dramaId/episodes",
+          "pathParams": [
+            "dramaId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/starshort/api/v1/dramas/{DRAMAID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:dramaId/episodes/:epNum",
+          "pathParams": [
+            "dramaId",
+            "epNum"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/starshort/api/v1/dramas/{DRAMAID}/episodes/{EPNUM}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP3",
+      "provider": "RapidTV",
+      "slug": "rapidtv",
+      "baseUrl": "https://captain.sapimu.au/rapidtv",
+      "endpointCount": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/rapidtv/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/rapidtv/api/v1/dramas/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id/episodes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/rapidtv/api/v1/dramas/{ID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/rapidtv/api/v1/search"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP3",
+      "provider": "MinuteDrama",
+      "slug": "minutedrama",
+      "baseUrl": "https://captain.sapimu.au/minutedrama",
+      "endpointCount": 3,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/popular",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/minutedrama/api/v1/popular"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/videos/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/minutedrama/api/v1/videos/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/minutedrama/api/v1/search"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP4",
+      "provider": "DramaBox",
+      "slug": "dramabox",
+      "baseUrl": "https://captain.sapimu.au/dramabox",
+      "endpointCount": 0,
+      "endpoints": [],
+      "status": "maintenance"
+    },
+    {
+      "vip": "VIP5",
+      "provider": "CashDrama",
+      "slug": "cashdrama",
+      "baseUrl": "https://captain.sapimu.au/cashdrama",
+      "endpointCount": 9,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/blocks",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/blocks"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tags",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/tags"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:vid",
+          "pathParams": [
+            "vid"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/drama/{VID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:vid/episodes",
+          "pathParams": [
+            "vid"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/drama/{VID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tags/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/tags/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/play/:vid/:ep",
+          "pathParams": [
+            "vid",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/cashdrama/api/v1/play/{VID}/{EP}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP5",
+      "provider": "ShotShort",
+      "slug": "shotshort",
+      "baseUrl": "https://captain.sapimu.au/shotshort",
+      "endpointCount": 8,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shotshort/api/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/popular",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shotshort/api/popular"
+        },
+        {
+          "method": "GET",
+          "path": "/api/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shotshort/api/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/book/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shotshort/api/book/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/book/:id/episodes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shotshort/api/book/{ID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/book/:bookId/chapter/:chapterId",
+          "pathParams": [
+            "bookId",
+            "chapterId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shotshort/api/book/{BOOKID}/chapter/{CHAPTERID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/category/list",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shotshort/api/category/list"
+        },
+        {
+          "method": "GET",
+          "path": "/api/category",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shotshort/api/category"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP5",
+      "provider": "SodaReels",
+      "slug": "sodareels",
+      "baseUrl": "https://captain.sapimu.au/sodareels",
+      "endpointCount": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/sodareels/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/sodareels/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/sodareels/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/info/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/sodareels/api/v1/info/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/category",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/sodareels/api/v1/category"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/episodes",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/sodareels/api/v1/episodes"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP5",
+      "provider": "RadReels",
+      "slug": "radreels",
+      "baseUrl": "https://captain.sapimu.au/radreels",
+      "endpointCount": 8,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/radreels/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tab/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/radreels/api/v1/tab/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/:query",
+          "pathParams": [
+            "query"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/radreels/api/v1/search/{QUERY}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:keyword",
+          "pathParams": [
+            "keyword"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/radreels/api/v1/drama/{KEYWORD}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/episodes/:fakeId",
+          "pathParams": [
+            "fakeId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/radreels/api/v1/episodes/{FAKEID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video/:videoFakeId/:episodicDramaId",
+          "pathParams": [
+            "videoFakeId",
+            "episodicDramaId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/radreels/api/v1/video/{VIDEOFAKEID}/{EPISODICDRAMAID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/ranking",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/radreels/api/v1/ranking"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/foryou",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/radreels/api/v1/foryou"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP5",
+      "provider": "DramaNow",
+      "slug": "dramanow",
+      "baseUrl": "https://captain.sapimu.au/dramanow",
+      "endpointCount": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanow/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanow/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/series",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanow/api/v1/series"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanow/api/v1/video"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP5",
+      "provider": "Shorten",
+      "slug": "shorten",
+      "baseUrl": "https://captain.sapimu.au/shorten",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/editors",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shorten/api/v1/editors"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/exclusive",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shorten/api/v1/exclusive"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dubbed",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shorten/api/v1/dubbed"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/releases",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shorten/api/v1/releases"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/categories",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shorten/api/v1/categories"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/explore",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shorten/api/v1/explore"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/series/:slug",
+          "pathParams": [
+            "slug"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shorten/api/v1/series/{SLUG}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP5",
+      "provider": "ShortSky",
+      "slug": "shortsky",
+      "baseUrl": "https://captain.sapimu.au/shortsky",
+      "endpointCount": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortsky/api/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortsky/api/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/recommend",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortsky/api/recommend"
+        },
+        {
+          "method": "GET",
+          "path": "/api/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortsky/api/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shortsky/api/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/drama/:id/episode/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shortsky/api/drama/{ID}/episode/{EP}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP6",
+      "provider": "FlickShort",
+      "slug": "flickshort",
+      "baseUrl": "https://captain.sapimu.au/flickshort",
+      "endpointCount": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flickshort/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flickshort/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flickshort/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/recommend",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flickshort/api/v1/recommend"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flickshort/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id/episode/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flickshort/api/v1/drama/{ID}/episode/{EP}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP6",
+      "provider": "DramaDash",
+      "slug": "dramadash",
+      "baseUrl": "https://captain.sapimu.au/dramadash",
+      "endpointCount": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/tabs/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramadash/api/v1/tabs/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/:query",
+          "pathParams": [
+            "query"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramadash/api/v1/search/{QUERY}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramadash/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/episode/:dramaId/:eps",
+          "pathParams": [
+            "dramaId",
+            "eps"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramadash/api/v1/episode/{DRAMAID}/{EPS}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP6",
+      "provider": "DramaWave",
+      "slug": "dramawave",
+      "baseUrl": "https://captain.sapimu.au/dramawave",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/:tab",
+          "pathParams": [
+            "tab"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramawave/api/v1/feed/{TAB}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramawave/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/hot",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramawave/api/v1/search/hot"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/keywords",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramawave/api/v1/search/keywords"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramawave/api/v1/dramas/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id/play/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramawave/api/v1/dramas/{ID}/play/{EP}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramawave/api/v1/languages"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP6",
+      "provider": "DramaRush",
+      "slug": "dramarush",
+      "baseUrl": "https://captain.sapimu.au/dramarush",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/config",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramarush/api/v1/config"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/ranking",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramarush/api/v1/ranking"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tabs/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramarush/api/v1/tabs/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramarush/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/:q",
+          "pathParams": [
+            "q"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramarush/api/v1/search/{Q}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/play/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramarush/api/v1/play/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/play/:id/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramarush/api/v1/play/{ID}/{EP}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP7",
+      "provider": "Reelife",
+      "slug": "reelife",
+      "baseUrl": "https://captain.sapimu.au/reelife",
+      "endpointCount": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelife/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/reelife/api/v1/dramas/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:id/chapters",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/reelife/api/v1/dramas/{ID}/chapters"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/:bookId/episodes/:chapterId",
+          "pathParams": [
+            "bookId",
+            "chapterId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/reelife/api/v1/dramas/{BOOKID}/episodes/{CHAPTERID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/foryou",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelife/api/v1/foryou"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelife/api/v1/search"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP7",
+      "provider": "Vigloo",
+      "slug": "vigloo",
+      "baseUrl": "https://captain.sapimu.au/vigloo",
+      "endpointCount": 11,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tabs",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/tabs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tabs/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/tabs/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/browse",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/browse"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/rank",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/rank"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/genres",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/genres"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:programId/season/:seasonId/episodes",
+          "pathParams": [
+            "programId",
+            "seasonId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/drama/{PROGRAMID}/season/{SEASONID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/play",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/play"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/stream",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/vigloo/api/v1/stream"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP7",
+      "provider": "DreamShort",
+      "slug": "dreamshort",
+      "baseUrl": "https://captain.sapimu.au/dreamshort",
+      "endpointCount": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/discover/sections",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dreamshort/discover/sections"
+        },
+        {
+          "method": "GET",
+          "path": "/search/books",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dreamshort/search/books"
+        },
+        {
+          "method": "GET",
+          "path": "/book/getBookDetail",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dreamshort/book/getBookDetail"
+        },
+        {
+          "method": "GET",
+          "path": "/bookShelf/chapterList",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dreamshort/bookShelf/chapterList"
+        },
+        {
+          "method": "GET",
+          "path": "/book/getChapterDetail",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dreamshort/book/getChapterDetail"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP7",
+      "provider": "ShortBox",
+      "slug": "shortbox",
+      "baseUrl": "https://captain.sapimu.au/shortbox",
+      "endpointCount": 9,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/categories",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/categories"
+        },
+        {
+          "method": "GET",
+          "path": "/api/list",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/list"
+        },
+        {
+          "method": "GET",
+          "path": "/api/new-list",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/new-list"
+        },
+        {
+          "method": "GET",
+          "path": "/api/hot-search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/hot-search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/detail/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/detail/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/episodes/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/episodes/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/stream/:id/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shortbox/api/stream/{ID}/{EP}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP8",
+      "provider": "MyDrama",
+      "slug": "mydrama",
+      "baseUrl": "https://captain.sapimu.au/mydrama",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/mydrama/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tags",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/mydrama/api/v1/tags"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/series",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/mydrama/api/v1/series"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/mydrama/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/series/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/mydrama/api/v1/series/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/series/:id/episodes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/mydrama/api/v1/series/{ID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video/:seriesId/:position",
+          "pathParams": [
+            "seriesId",
+            "position"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/mydrama/api/v1/video/{SERIESID}/{POSITION}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP8",
+      "provider": "GoodShort",
+      "slug": "goodshort",
+      "baseUrl": "https://captain.sapimu.au/goodshort",
+      "endpointCount": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/goodshort/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/goodshort/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/book/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/goodshort/api/v1/book/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/chapters/:bookId",
+          "pathParams": [
+            "bookId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/goodshort/api/v1/chapters/{BOOKID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/play/:bookId/:chapterId",
+          "pathParams": [
+            "bookId",
+            "chapterId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/goodshort/api/v1/play/{BOOKID}/{CHAPTERID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/unlock/:bookId",
+          "pathParams": [
+            "bookId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/goodshort/api/v1/unlock/{BOOKID}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP8",
+      "provider": "iDrama",
+      "slug": "idrama",
+      "baseUrl": "https://captain.sapimu.au/idrama",
+      "endpointCount": 9,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/popular",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/popular"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/ranking/trending",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/ranking/trending"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/ranking/hits",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/ranking/hits"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/latest",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/latest"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/genres",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/genres"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/genre/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/genre/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/drama/{ID}"
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/unlock/:dramaId/:start/:end",
+          "pathParams": [
+            "dramaId",
+            "start",
+            "end"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/idrama/api/v1/unlock/{DRAMAID}/{START}/{END}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP8",
+      "provider": "FlexTV",
+      "slug": "flextv",
+      "baseUrl": "https://captain.sapimu.au/flextv",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flextv/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tabs",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flextv/api/v1/tabs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tabs/:name",
+          "pathParams": [
+            "name"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flextv/api/v1/tabs/{NAME}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/flextv/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/series/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flextv/api/v1/series/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/series/:id/episodes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flextv/api/v1/series/{ID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/play/:series_id/:section_id",
+          "pathParams": [
+            "series_id",
+            "section_id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/flextv/api/v1/play/{SERIES_ID}/{SECTION_ID}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "BiliTV",
+      "slug": "bilitv",
+      "baseUrl": "https://captain.sapimu.au/bilitv",
+      "endpointCount": 8,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/bilitv/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/bilitv/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/bilitv/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/recommend",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/bilitv/api/v1/recommend"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/bilitv/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/bilitv/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id/episode/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/bilitv/api/v1/drama/{ID}/episode/{EP}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/subtitle/:shortId/:episode",
+          "pathParams": [
+            "shortId",
+            "episode"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/bilitv/api/v1/subtitle/{SHORTID}/{EPISODE}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "DramaBite",
+      "slug": "dramabite",
+      "baseUrl": "https://captain.sapimu.au/dramabite",
+      "endpointCount": 9,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/foryou",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/foryou"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/hot",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/hot"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id/likes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/drama/{ID}/likes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id/episode/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/drama/{ID}/episode/{EP}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/recommend",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramabite/api/v1/recommend"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "DramaNova",
+      "slug": "dramanova",
+      "baseUrl": "https://captain.sapimu.au/dramanova",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanova/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanova/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramanova/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id/episode/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramanova/api/v1/drama/{ID}/episode/{EP}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanova/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/modules",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanova/api/v1/modules"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/recommend",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramanova/api/v1/recommend"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "DramaPops",
+      "slug": "dramapops",
+      "baseUrl": "https://captain.sapimu.au/dramapops",
+      "endpointCount": 9,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/config",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/config"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/homepage",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/homepage"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/trending",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/dramas/trending"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas/popular",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/dramas/popular"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id/episode/:ep/video",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/drama/{ID}/episode/{EP}/video"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/dramapops/api/v1/search"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "Fundrama",
+      "slug": "fundrama",
+      "baseUrl": "https://captain.sapimu.au/fundrama",
+      "endpointCount": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/fundrama/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dramas",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/fundrama/api/v1/dramas"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/fundrama/api/v1/drama/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id/episodes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/fundrama/api/v1/drama/{ID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama/:id/episode/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/fundrama/api/v1/drama/{ID}/episode/{EP}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/fundrama/api/v1/search"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "KalosTV",
+      "slug": "kalostv",
+      "baseUrl": "https://captain.sapimu.au/kalostv",
+      "endpointCount": 9,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/tabs",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/tabs"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/foryou",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/foryou"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/video/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video/:id/episodes",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/video/{ID}/episodes"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video/:id/episode/:ep",
+          "pathParams": [
+            "id",
+            "ep"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/video/{ID}/episode/{EP}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/categories",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/categories"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/tag/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/kalostv/api/v1/tag/{ID}"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "NetShort",
+      "slug": "netshort",
+      "baseUrl": "https://captain.sapimu.au/netshort",
+      "endpointCount": 14,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/:page",
+          "pathParams": [
+            "page"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/feed/{PAGE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/explore/:page",
+          "pathParams": [
+            "page"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/explore/{PAGE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/new/:page",
+          "pathParams": [
+            "page"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/new/{PAGE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/dubbing/:page",
+          "pathParams": [
+            "page"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/dubbing/{PAGE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/vip/:page",
+          "pathParams": [
+            "page"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/vip/{PAGE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/:keyword/:page",
+          "pathParams": [
+            "keyword",
+            "page"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/search/{KEYWORD}/{PAGE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search-hint",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/search-hint"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/categories",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/categories"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/category/:page",
+          "pathParams": [
+            "page"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/category/{PAGE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/detail/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/detail/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/similar/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/similar/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/episodes/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/episodes/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/episode/:id/:episodeNo",
+          "pathParams": [
+            "id",
+            "episodeNo"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/episode/{ID}/{EPISODENO}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/netshort/api/v1/languages"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "Melolo",
+      "slug": "melolo",
+      "baseUrl": "https://captain.sapimu.au/melolo",
+      "endpointCount": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/melolo/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/series",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/melolo/api/v1/series"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/video",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/melolo/api/v1/video"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/batch/videos",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/melolo/api/v1/batch/videos"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/bookmall",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/melolo/api/v1/bookmall"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/melolo/api/v1/languages"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/img",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/melolo/api/v1/img"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "ShortMax",
+      "slug": "shortmax",
+      "baseUrl": "https://captain.sapimu.au/shortmax",
+      "endpointCount": 13,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/home",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/home"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/recommend",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/feed/recommend"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/vip",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/feed/vip"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/new",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/feed/new"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/ranked",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/feed/ranked"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/war",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/feed/war"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/epic",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/feed/epic"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/romance",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/feed/romance"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/foryou",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/foryou"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/detail/:code",
+          "pathParams": [
+            "code"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/detail/{CODE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/play/:code",
+          "pathParams": [
+            "code"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/play/{CODE}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/languages",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/shortmax/api/v1/languages"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "vip": "VIP9",
+      "provider": "ReelShort",
+      "slug": "reelshort",
+      "baseUrl": "https://captain.sapimu.au/reelshort",
+      "endpointCount": 12,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/foryou",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/foryou"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/new",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/new"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/completed",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/completed"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/romance",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/romance"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/drama",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/drama"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/feed/:tabId",
+          "pathParams": [
+            "tabId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/feed/{TABID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/leaderboard",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/leaderboard"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/search"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/search/suggestions",
+          "pathParams": [],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/search/suggestions"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/book/:id",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/book/{ID}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/book/:id/chapters",
+          "pathParams": [
+            "id"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/book/{ID}/chapters"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/book/:id/chapter/:chapterId/video",
+          "pathParams": [
+            "id",
+            "chapterId"
+          ],
+          "sampleUrl": "https://captain.sapimu.au/reelshort/api/v1/book/{ID}/chapter/{CHAPTERID}/video"
+        }
+      ],
+      "status": "active"
+    }
+  ]
+}
