@@ -6,7 +6,7 @@ import { pipeline } from 'node:stream/promises';
 import { spawn } from 'node:child_process';
 
 export type DownloadStatus = 'queued' | 'downloading' | 'completed' | 'failed' | 'cancelled';
-export interface DownloadRequest { provider: string; dramaId: string; episodeId: string; episodeNo: number }
+export interface DownloadRequest { provider: string; dramaId: string; dramaTitle?: string; episodeId: string; episodeNo: number }
 export interface DownloadJob extends DownloadRequest { key: string; status: DownloadStatus; bytesDownloaded: number; totalBytes?: number; progress: number; file?: string; error?: string; createdAt: string; updatedAt: string }
 type State = { maxConcurrency: number; jobs: DownloadJob[] };
 type Options = { root?: string; resolve: (job: DownloadRequest) => Promise<string>; fetch?: typeof fetch; autoStart?: boolean; ffmpeg?: string };
@@ -49,7 +49,7 @@ export class DownloadManager {
     const existing = this.state.jobs.find((item) => item.key === key);
     if (existing && !['failed', 'cancelled'].includes(existing.status)) return structuredClone(existing);
     const now = new Date().toISOString();
-    const item: DownloadJob = { provider, dramaId, episodeId, episodeNo: request.episodeNo, key, status: 'queued', bytesDownloaded: 0, progress: 0, createdAt: existing?.createdAt || now, updatedAt: now };
+    const item: DownloadJob = { provider, dramaId, dramaTitle: request.dramaTitle ? safeSegment(request.dramaTitle) : undefined, episodeId, episodeNo: request.episodeNo, key, status: 'queued', bytesDownloaded: 0, progress: 0, createdAt: existing?.createdAt || now, updatedAt: now };
     if (existing) Object.assign(existing, item); else this.state.jobs.push(item);
     await this.persist(); if (this.autoStart) this.start(); return structuredClone(item);
   }
@@ -101,7 +101,7 @@ export class DownloadManager {
       await this.persist();
       const url = await this.options.resolve(job);
       if (/\.m3u8(?:\?|$)/i.test(url)) {
-        const directory = path.join(this.root, job.provider, job.dramaId); await mkdir(directory, { recursive: true });
+        const directory = path.join(this.root, job.provider, job.dramaTitle ? `${job.dramaId}_${safeSegment(job.dramaTitle)}` : job.dramaId); await mkdir(directory, { recursive: true });
         const target = path.join(directory, `${job.episodeNo}.mp4`); part = `${target}.part`;
         await new Promise<void>((resolve, reject) => {
           const child = spawn(this.options.ffmpeg || 'ffmpeg', ['-y', '-i', url, '-c', 'copy', part], { stdio: 'ignore' });
@@ -112,7 +112,7 @@ export class DownloadManager {
         await rename(part, target); Object.assign(job, { status: 'completed', progress: 100, file: target, updatedAt: new Date().toISOString() }); return;
       }
       const parsed = new URL(url); const ext = /\.(mp4|m4v|mov|webm)$/i.exec(parsed.pathname)?.[1]?.toLowerCase() || 'mp4';
-      const directory = path.join(this.root, job.provider, job.dramaId); await mkdir(directory, { recursive: true });
+      const directory = path.join(this.root, job.provider, job.dramaTitle ? `${job.dramaId}_${safeSegment(job.dramaTitle)}` : job.dramaId); await mkdir(directory, { recursive: true });
       const target = path.join(directory, `${job.episodeNo}.${ext}`); part = `${target}.part`;
       const response = await this.fetcher(url, { signal }); if (!response.ok || !response.body) throw new Error(`Download failed: HTTP ${response.status}`);
       job.totalBytes = Number(response.headers.get('content-length')) || undefined;

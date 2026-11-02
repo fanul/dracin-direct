@@ -4,7 +4,7 @@ import { Download } from 'lucide-react';
 import type { EpisodeItem } from '@/lib/types';
 
 type Job = { key: string; episodeNo: number; provider: string; dramaId: string; status: string; progress: number };
-export function EpisodeDownloadButton({ episode, provider, dramaId }: { episode: EpisodeItem; provider: string; dramaId: string }) {
+export function EpisodeDownloadButton({ episode, provider, dramaId, dramaTitle }: { episode: EpisodeItem; provider: string; dramaId: string; dramaTitle?: string }) {
   const [job, setJob] = useState<Job>();
   useEffect(() => {
     let live = true;
@@ -15,5 +15,5 @@ export function EpisodeDownloadButton({ episode, provider, dramaId }: { episode:
   }, [provider, dramaId, episode.episodeNo]);
   if (job?.status === 'completed') return <span className="text-[10px] font-bold text-green-400">Downloaded</span>;
   if (job && ['queued', 'downloading'].includes(job.status)) return <span className="text-[10px] text-amber-400">{job.status === 'queued' ? 'Queued' : `${job.progress}%`}</span>;
-  return <button type="button" aria-label={`Download episode ${episode.episodeNo}`} className="text-slate-400 hover:text-white" onClick={async (event) => { event.preventDefault(); event.stopPropagation(); await fetch('/api/v1/downloads', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ provider, dramaId, episodeId: episode.providerEpisodeId || episode.chapterId || episode.episodeId, episodeNo: episode.episodeNo }) }); }}><Download size={14} /></button>;
+  return <button type="button" aria-label={`Download episode ${episode.episodeNo}`} className="text-slate-400 hover:text-white" onClick={async (event) => { event.preventDefault(); event.stopPropagation(); await fetch('/api/v1/downloads', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ provider, dramaId, dramaTitle, episodeId: episode.providerEpisodeId || episode.chapterId || episode.episodeId, episodeNo: episode.episodeNo }) }); }}><Download size={14} /></button>;
 }

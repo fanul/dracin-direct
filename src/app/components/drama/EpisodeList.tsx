@@ -9,6 +9,7 @@ interface EpisodeListProps {
     episodes: EpisodeItem[];
     providerSlug: string;
     providerDramaId: string;
+    dramaTitle?: string;
     isPremium: boolean;
     watchedEpisodes?: number[];
 }
@@ -17,6 +18,7 @@ export function EpisodeList({
     episodes,
     providerSlug,
     providerDramaId,
+    dramaTitle,
     isPremium,
     watchedEpisodes = [],
 }: EpisodeListProps) {
@@ -43,7 +45,7 @@ export function EpisodeList({
                     >
                         {isLocked && <Lock size={12} />}
                         <span className="font-medium whitespace-nowrap">Ep {ep.episodeNo}</span>
-                        {!isLocked && <EpisodeDownloadButton episode={ep} provider={providerSlug} dramaId={providerDramaId} />}
+                        {!isLocked && <EpisodeDownloadButton episode={ep} provider={providerSlug} dramaId={providerDramaId} dramaTitle={dramaTitle} />}
                     </Link>
                 );
             })}

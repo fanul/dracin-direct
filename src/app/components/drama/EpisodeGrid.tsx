@@ -9,6 +9,7 @@ interface EpisodeGridProps {
     episodes: EpisodeItem[];
     providerSlug: string;
     providerDramaId: string;
+    dramaTitle?: string;
     isPremium: boolean;
     watchedEpisodes?: number[];
 }
@@ -17,6 +18,7 @@ export function EpisodeGrid({
     episodes,
     providerSlug,
     providerDramaId,
+    dramaTitle,
     isPremium,
     watchedEpisodes = [],
 }: EpisodeGridProps) {
@@ -43,7 +45,7 @@ export function EpisodeGrid({
                     >
                         {isLocked && <Lock size={14} className="mb-1" />}
                         <span className="text-sm font-bold">{ep.episodeNo}</span>
-                        {!isLocked && <EpisodeDownloadButton episode={ep} provider={providerSlug} dramaId={providerDramaId} />}
+                        {!isLocked && <EpisodeDownloadButton episode={ep} provider={providerSlug} dramaId={providerDramaId} dramaTitle={dramaTitle} />}
                     </Link>
                 );
             })}

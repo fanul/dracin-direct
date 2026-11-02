@@ -213,7 +213,7 @@ export default function DramaDetailPage() {
           </div>
 
           <ViewToggle viewMode={viewMode} onChange={setViewMode} />
-          <button type="button" className="flex items-center gap-1 text-xs text-slate-300 hover:text-white" onClick={() => fetch('/api/v1/downloads', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ episodes: episodes.filter((episode) => !episode.isLocked || drama.isPremium).map((episode) => ({ provider: drama.providerSlug, dramaId: drama.providerDramaId, episodeId: episode.providerEpisodeId || episode.chapterId || episode.episodeId, episodeNo: episode.episodeNo })) }) })}><Download size={14} /> Download All</button>
+          <button type="button" className="flex items-center gap-1 text-xs text-slate-300 hover:text-white" onClick={() => fetch('/api/v1/downloads', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ episodes: episodes.filter((episode) => !episode.isLocked || drama.isPremium).map((episode) => ({ provider: drama.providerSlug, dramaId: drama.providerDramaId, dramaTitle: drama.title, episodeId: episode.providerEpisodeId || episode.chapterId || episode.episodeId, episodeNo: episode.episodeNo })) }) })}><Download size={14} /> Download All</button>
         </div>
 
         {episodes.length > 0 ? (
@@ -222,6 +222,7 @@ export default function DramaDetailPage() {
               episodes={episodes}
               providerSlug={drama.providerSlug}
               providerDramaId={drama.providerDramaId}
+              dramaTitle={drama.title}
               isPremium={drama.isPremium}
               watchedEpisodes={watchedEpisodes}
             />
@@ -230,6 +231,7 @@ export default function DramaDetailPage() {
               episodes={episodes}
               providerSlug={drama.providerSlug}
               providerDramaId={drama.providerDramaId}
+              dramaTitle={drama.title}
               isPremium={drama.isPremium}
               watchedEpisodes={watchedEpisodes}
             />

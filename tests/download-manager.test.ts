@@ -8,7 +8,7 @@ const roots: string[] = [];
 async function root() { const value = await mkdtemp(path.join(tmpdir(), 'dracin-download-')); roots.push(value); return value; }
 afterEach(async () => Promise.all(roots.splice(0).map((value) => rm(value, { recursive: true, force: true }))));
 
-const job = { provider: 'dramabox', dramaId: 'show-1', episodeId: 'ep-1', episodeNo: 1 };
+const job = { provider: 'dramabox', dramaId: 'show-1', dramaTitle: 'Judul Drama', episodeId: 'ep-1', episodeNo: 1 };
 
 async function waitFor(manager: DownloadManager, status: string) {
   for (let i = 0; i < 100; i++) {
@@ -37,7 +37,7 @@ describe('download manager', () => {
     const complete = await waitFor(manager, 'completed');
     expect(complete.bytesDownloaded).toBe(10);
     expect(complete.progress).toBe(100);
-    expect(await readFile(path.join(dir, 'dramabox', 'show-1', '1.mp4'), 'utf8')).toBe('video-data');
+    expect(await readFile(path.join(dir, 'dramabox', 'show-1_Judul_Drama', '1.mp4'), 'utf8')).toBe('video-data');
     expect(JSON.parse(await readFile(path.join(dir, '.downloads.json'), 'utf8')).jobs[0].status).toBe('completed');
   });
 
@@ -48,7 +48,7 @@ describe('download manager', () => {
     const manager = new DownloadManager({ root: dir, ffmpeg, resolve: async () => 'https://media.test/master.m3u8' });
     await manager.ready(); await manager.enqueue(job);
     expect((await waitFor(manager, 'completed')).progress).toBe(100);
-    expect(await readFile(path.join(dir, 'dramabox', 'show-1', '1.mp4'), 'utf8')).toBe('hls-video');
+    expect(await readFile(path.join(dir, 'dramabox', 'show-1_Judul_Drama', '1.mp4'), 'utf8')).toBe('hls-video');
     await manager.idle();
   });
 
